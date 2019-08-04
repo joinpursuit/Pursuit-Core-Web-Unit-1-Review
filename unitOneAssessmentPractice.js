@@ -117,7 +117,7 @@ runQ7Tests()
 const addAllStudents =(arr)=>{
   return arr.reduce((acc, currel) =>{
     return acc += currel.numberOfStudents
-  })
+  },0)
 }
 // Sample input:
 //[{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]

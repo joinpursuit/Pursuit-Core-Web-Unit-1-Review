@@ -81,13 +81,59 @@ runQ5Tests()
 
 // Question Six:
 
+const mode = (arr) => {
+  let collector = {};
+  let objDefiner = arr.forEach((currEl) => {
+    if (collector[currEl] === undefined) {
+      collector[currEl] = 1
+    } else {
+      collector[currEl] += 1
+    }
+  })
+  console.log(collector)
+  let biggest = 0
+  let biggestValue = 0
+  for(let key in collector) {
+    console.log("keyssss", collector[key])
+    if (collector[key] > biggestValue) {
+      biggestValue = collector[key]
+      biggest = key
+      console.log("biggest", biggest)
+    }
+  }
+  return Number(biggest)
+}
+
+// const mode = (arr) => {
+//   let collector = {}
+//   let objDefiner = arr.forEach((currEl) => {
+//     if (collector[currEl] === undefined) {
+//       collector[currEl] = 1
+//     } else {
+//       collector[currEl] += 1
+//     }
+//
+//   //   collector[currEl] = 1
+//   //   console.log(collector)
+//   //   if (collector[currEl] === currEl) {
+//   //     collector[currEl]++
+//   //   }
+//   // })
+// for (let key in collector) {
+//   console.log(key)
+// })
+// console.log(collector)
+// }
+//
+// let testArr = [1,3,3,3,2,4,5,5]
+
 
 
 // Write a function called mode that returns the most frequently occurring number in an array
 // HINT: Use an object where the keys are the numbers, and the values are how many times they appear in the array.
 
 // Uncomment out the next line to test your solution
-// runQ6Tests()
+runQ6Tests()
 
 // Question Seven: (BONUS)
 // Write a function called median that returns the most median number in an array

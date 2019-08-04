@@ -69,7 +69,7 @@ runQ5Tests()
 // Write a function called mode that returns the most frequently occurring number in an array
 // HINT: Use an object where the keys are the numbers, and the values are how many times they appear in the array.
 const mode =(arr) =>{ 
-  let counter =0; 
+  let tracker= 0; 
   let objkey;        
   let obj = {};                
   for (let i = 0; i < arr.length; i++)  {            
@@ -77,11 +77,13 @@ const mode =(arr) =>{
      obj[arr[i]] = 1
   }  else {
       obj[arr[i]]++
-  }    
+    }    
    } 
+
+
    for(key in obj ){
-    if(obj[key] > counter){
-     counter =obj[key]
+    if(obj[key] > tracker){
+     tracker =obj[key]
      objKey = key;
     }
    }
@@ -96,16 +98,26 @@ runQ6Tests()
 // Write a function called median that returns the most median number in an array
 // HINT: You'll need to sort the array first
 // This one's also a bit tricky, feel free to skip it and come back to it.
- 
+ const median =(arr)=>{
+   arr.sort((a,b) => a-b)
+  //  console.log(arr);
+    
+  if (arr.length % 2 ===0){
+    return (arr[arr.length / 2] + arr[arr.length / 2 - 1])/2
+  }else {
+    return arr[(arr.length - 1)/2]
+  } 
+
+ }
 // Uncomment out the next line to test your solution
-// runQ7Tests()
+runQ7Tests()
 
 // Question Eight:
 // Write a function called addAllStudents that takes in an array of Classroom objects (described below) and returns the total number of students
 const addAllStudents =(arr)=>{
   return arr.reduce((acc, currel) =>{
     return acc += currel.numberOfStudents
-  },0)
+  })
 }
 // Sample input:
 //[{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]
@@ -176,7 +188,7 @@ const containsOnlyNumbers =(arr) =>{
   return arr.every(el => !isNaN(el))
 }
 // Uncomment out the next line to test your solution
-// runQ12Tests()
+runQ12Tests()
 
 // Question Thirteen:
 
@@ -217,7 +229,7 @@ const getAllNames = (arr) =>{
   let strArr=[]
   arr.forEach(el =>{
   strArr.push(el.name)
-  console.log(strArr);
+  // console.log(strArr);
   })
 
 return strArr.join(',')

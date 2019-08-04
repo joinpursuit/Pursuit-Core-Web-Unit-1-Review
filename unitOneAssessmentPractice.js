@@ -52,20 +52,37 @@ runQ3Tests()
 
 // Question Four:
 
-
+const largest = (arr) => {
+  let fattyMcLarge = arr.reduce((acc, currentElem) => {
+    if (currentElem > acc) {
+      acc = currentElem
+    }
+    return acc
+  })
+  return fattyMcLarge
+}
 
 // Write a function called largest that returns the largest value in an array
 
 // Uncomment out the next line to test your solution
-// runQ4Tests()
+runQ4Tests()
 
 // Question Five:
+
+const average = (arr) => {
+  let dougIsTheBest = arr.reduce((a, b) => a + b) / arr.length
+  return dougIsTheBest
+}
+
 // Write a function called average that returns the average of an array
 
 // Uncomment out the next line to test your solution
-// runQ5Tests()
+runQ5Tests()
 
 // Question Six:
+
+
+
 // Write a function called mode that returns the most frequently occurring number in an array
 // HINT: Use an object where the keys are the numbers, and the values are how many times they appear in the array.
 

@@ -27,18 +27,19 @@ function containsSeven(num) {
 
 // Write a function called capitalizeTheAs the capitalizes all of the lowercase "a"s in a string leaving all other characters the same
   const capitalizeTheAs = (str) =>{
-    for (let i = 0; i< str.length; i++){
-      if (str[i] === 'a'){
-        return str[i].toUpperCase();
-      }
-      else {
-        return str;
-      }
-      
+    let testArr = str.split("");
+    for (let i = 0; i< testArr.length; i++){
+      if (testArr[i] === 'a'){
+         testArr[i] = 'A' 
     }
   }
+    let endRes = testArr.join("");
+   return endRes;
+    
+  }
+  
 // Uncomment out the next line to test your solution
-runQ3Tests()
+// runQ3Tests()
 
 // Question Four:
 // Write a function called largest that returns the largest value in an array
@@ -56,13 +57,37 @@ const largest = (arr ) =>{
 
 // Question Five:
 // Write a function called average that returns the average of an array
-
+const average =(arr) => {
+  return arr.reduce((acc,currel) =>{
+    return acc + currel
+  })/arr.length
+}
 // Uncomment out the next line to test your solution
 // runQ5Tests()
 
 // Question Six:
 // Write a function called mode that returns the most frequently occurring number in an array
 // HINT: Use an object where the keys are the numbers, and the values are how many times they appear in the array.
+const mode =(arr) =>{ 
+  let counter =0; 
+  let objkey;        
+  let obj = {};                
+  for (let i = 0; i < arr.length; i++)  {            
+  if (obj[arr[i]] === undefined){
+     obj[arr[i]] = 1
+  }  else {
+      obj[arr[i]]++
+  }    
+   } 
+   for(key in obj ){
+    if(obj[key] > counter){
+     counter =obj[key]
+     objKey = key;
+    }
+   }
+   return Number(objKey)
+}
+// console.log(mode([1,2,4,1,5,2,1,1,2,2,2]));
 
 // Uncomment out the next line to test your solution
 // runQ6Tests()
@@ -77,9 +102,13 @@ const largest = (arr ) =>{
 
 // Question Eight:
 // Write a function called addAllStudents that takes in an array of Classroom objects (described below) and returns the total number of students
-
+const addAllStudents =(arr)=>{
+  return arr.reduce((acc, currel) =>{
+    return acc += currel.numberOfStudents
+  },0)
+}
 // Sample input:
-// [{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]
+//[{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]
 
 // Sample output:
 // 80
@@ -90,6 +119,9 @@ const largest = (arr ) =>{
 
 // Question Nine:
 // Write a function called getSmallestClassObject that takes in an array of Classroom objects (described below) and returns the object with the fewest students
+const fewestStudents = (arr) =>{
+ 
+}
 
 // Sample input:
 // [{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]
@@ -108,7 +140,9 @@ const largest = (arr ) =>{
 // Write a function called doubleAllElements that doubles each number in an array
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
-
+const dou(bleAllElements =() =>{
+  arr.map()
+}
 // Uncomment out the next line to test your solution
 // runQ10Tests()
 

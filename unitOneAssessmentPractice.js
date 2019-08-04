@@ -136,14 +136,48 @@ const mode = (arr) => {
 runQ6Tests()
 
 // Question Seven: (BONUS)
+
+const median = (arr) => {
+  sortedArr = arr.sort(function(a, b){return a - b})
+  if (sortedArr.length % 2 === 1) {
+    sortedArr = sortedArr.slice(sortedArr.length / 2, sortedArr.length / 2 + 1)
+    console.log("ODD")
+    console.log(sortedArr)
+    return parseInt(sortedArr)
+  } else {
+    console.log("EVEN")
+    sortedArr = sortedArr.slice(sortedArr.length / 2 - 1, sortedArr.length / 2 + 1)
+    return (sortedArr[0] + sortedArr[1]) / 2
+  }
+  console.log(sortedArr)
+}
+
 // Write a function called median that returns the most median number in an array
 // HINT: You'll need to sort the array first
 // This one's also a bit tricky, feel free to skip it and come back to it.
 
 // Uncomment out the next line to test your solution
-// runQ7Tests()
+runQ7Tests()
 
 // Question Eight:
+
+const addAllStudents = (arr) => {
+  let studentCounter = 0
+  let searchCLassroom = arr.forEach((currEl) => {
+    console.log(currEl)
+    for (let key in currEl) {
+      console.log(currEl[key])
+      if (currEl[key] > 0) {
+        console.log("RUN")
+        studentCounter = studentCounter + Number(currEl[key])
+        console.log(studentCounter)
+      }
+    }
+  })
+  console.log(studentCounter)
+    return studentCounter
+}
+
 // Write a function called addAllStudents that takes in an array of Classroom objects (described below) and returns the total number of students
 
 // Sample input:
@@ -153,11 +187,36 @@ runQ6Tests()
 // 80
 
 // Uncomment out the next line to test your solution
-// runQ8Tests()
+runQ8Tests()
 
 
 // Question Nine:
-// Write a function called getSmallestClassObject that takes in an array of Classroom objects (described below) and returns the object with the fewest students
+
+const fewestStudents = (arr) => {
+  let studentLowestClass;
+  let studentLowest = 0;
+  let searchCLassroom = arr.forEach((currEl) => {
+    for (let key in currEl) {
+      if (currEl[key] > 0) {
+        console.log(currEl[key])
+        // studentLowest = currEl[key]
+        console.log(studentLowest)
+        if (studentLowest === 0) {
+          console.log("ENTER")
+          studentLowest = currEl[key]
+          studentLowestClass = currEl
+        } else if (studentLowest > currEl[key]) {
+          console.log("REPLACE")
+          studentLowest = currEl[key]
+          studentLowestClass = currEl
+        }
+      }
+    }
+  })
+  return studentLowestClass
+}
+
+// Write a function called fewestStudents that takes in an array of Classroom objects (described below) and returns the object with the fewest students
 
 // Sample input:
 // [{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]
@@ -166,38 +225,65 @@ runQ6Tests()
 // {teacher: "Professor McGonagall", numberOfStudents: 20}
 
 // Uncomment out the next line to test your solution
-// runQ9Tests()
-
-
+runQ9Tests()
 
 
 // Question Ten:
+
+const doubleAllElements = (arr) => {
+  const doubler = (num) => {
+    return num + num
+  }
+  let doubleStuff = arr.map(doubler)
+  return doubleStuff
+}
 
 // Write a function called doubleAllElements that doubles each number in an array
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
 
 // Uncomment out the next line to test your solution
-// runQ10Tests()
+runQ10Tests()
 
 
 // Question Eleven:
+
+const onlyLongStrings = (arr) => {
+  const longFinder = (string) => {
+    if (string.length > 3) {
+      console.log("FOUND")
+      return string
+    }
+  }
+  let longest = arr.filter(longFinder)
+  return longest
+}
 
 // Write a function called onlyLongStrings that removes all strings with 3 or fewer characters
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
 
 // Uncomment out the next line to test your solution
-// runQ11Tests()
+runQ11Tests()
 
 // Question Twelve:
+
+const containsOnlyNumbers = (arr) => {
+  const numberCheck = (element) => {
+    if (element > 0) {
+      return element
+    }
+  }
+  let numberFinder = arr.every(numberCheck)
+  return numberFinder
+}
 
 // Write a function called containsOnlyNumbers that returns whether or not an array contains only numbers
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Hint: the isNaN() function will tell you whether something is not a number
 
 // Uncomment out the next line to test your solution
-// runQ12Tests()
+runQ12Tests()
 
 // Question Thirteen:
 

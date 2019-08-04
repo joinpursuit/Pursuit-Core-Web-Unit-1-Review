@@ -8,7 +8,7 @@ function double(num) {
   return num * 2
 }
 // Uncomment out the next line to test your solution
-// runQ1Tests()
+runQ1Tests()
 
 // Question Two:
 
@@ -21,7 +21,7 @@ function containsSeven(num) {
   }
 }
 // Uncomment out the next line to test your solution
-// runQ2Tests()
+runQ2Tests()
 
 // Question Three:
 
@@ -39,7 +39,7 @@ function containsSeven(num) {
   }
   
 // Uncomment out the next line to test your solution
-// runQ3Tests()
+runQ3Tests()
 
 // Question Four:
 // Write a function called largest that returns the largest value in an array
@@ -53,7 +53,7 @@ const largest = (arr ) =>{
   })
 }
 // Uncomment out the next line to test your solution
-// runQ4Tests()
+runQ4Tests()
 
 // Question Five:
 // Write a function called average that returns the average of an array
@@ -63,7 +63,7 @@ const average =(arr) => {
   })/arr.length
 }
 // Uncomment out the next line to test your solution
-// runQ5Tests()
+runQ5Tests()
 
 // Question Six:
 // Write a function called mode that returns the most frequently occurring number in an array
@@ -90,13 +90,13 @@ const mode =(arr) =>{
 // console.log(mode([1,2,4,1,5,2,1,1,2,2,2]));
 
 // Uncomment out the next line to test your solution
-// runQ6Tests()
+runQ6Tests()
 
 // Question Seven: (BONUS)
 // Write a function called median that returns the most median number in an array
 // HINT: You'll need to sort the array first
 // This one's also a bit tricky, feel free to skip it and come back to it.
-
+ 
 // Uncomment out the next line to test your solution
 // runQ7Tests()
 
@@ -114,13 +114,19 @@ const addAllStudents =(arr)=>{
 // 80
 
 // Uncomment out the next line to test your solution
-// runQ8Tests()
+runQ8Tests()
 
 
 // Question Nine:
 // Write a function called getSmallestClassObject that takes in an array of Classroom objects (described below) and returns the object with the fewest students
 const fewestStudents = (arr) =>{
- 
+  return arr.reduce((acc, currel) => {
+    if (acc.numberOfStudents > currel.numberOfStudents){
+      return currel
+    } else {
+      return acc
+    }
+  })
 }
 
 // Sample input:
@@ -130,7 +136,7 @@ const fewestStudents = (arr) =>{
 // {teacher: "Professor McGonagall", numberOfStudents: 20}
 
 // Uncomment out the next line to test your solution
-// runQ9Tests()
+runQ9Tests()
 
 
 
@@ -140,11 +146,13 @@ const fewestStudents = (arr) =>{
 // Write a function called doubleAllElements that doubles each number in an array
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
-const dou(bleAllElements =() =>{
-  arr.map()
+const doubleAllElements =(arr) =>{
+ return arr.map(el => {
+    return el * 2
+  });
 }
 // Uncomment out the next line to test your solution
-// runQ10Tests()
+runQ10Tests()
 
 
 // Question Eleven:
@@ -152,16 +160,21 @@ const dou(bleAllElements =() =>{
 // Write a function called onlyLongStrings that removes all strings with 3 or fewer characters
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
-
+const onlyLongStrings =(arr) =>{
+  return arr.filter(el => el.length > 3)
+  
+}
 // Uncomment out the next line to test your solution
-// runQ11Tests()
+runQ11Tests()
 
 // Question Twelve:
 
 // Write a function called containsOnlyNumbers that returns whether or not an array contains only numbers
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Hint: the isNaN() function will tell you whether something is not a number
-
+const containsOnlyNumbers =(arr) =>{
+  return arr.every(el => !isNaN(el))
+}
 // Uncomment out the next line to test your solution
 // runQ12Tests()
 
@@ -169,20 +182,47 @@ const dou(bleAllElements =() =>{
 
 // Make a class called Person that has two properties set by the constructor named age and name
 // Give it a method called isALegalAdult which returns true if the age is at least 18
+class Person{
+  constructor(age, name){
+  this.age = age;
+  this.name = name;
+  }
 
-// runQ13Tests()
+  isALegalAdult (){
+    if(this.age >= 18){
+      return true
+    } else {
+      return false
+    }
+  }
+}
+runQ13Tests()
 
 // Question Fourteen:
 
 // Write a function called getAllAdults that takes in an array of Person objects and returns an array with only Person objects with an age of at least 18
-
-// runQ14Tests()
+const getAllAdults =(arr) =>{
+  return arr.filter(el => {
+    if(el.age >= 18){
+      return el
+    }
+  })
+}
+runQ14Tests()
 
 // Question Fifteen:
 
 // Write a function called getAllNames that takes in an array of Person objects and returns a string with all of the names joined together with a ","
+const getAllNames = (arr) =>{
+  let strArr=[]
+  arr.forEach(el =>{
+  strArr.push(el.name)
+  console.log(strArr);
+  })
 
-// runQ15Tests()
+return strArr.join(',')
+}
+runQ15Tests()
 
 // The code below is used to test your solutions.  Feel free to look over it, but do not change any of it.
 

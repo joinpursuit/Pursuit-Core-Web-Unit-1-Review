@@ -94,7 +94,7 @@ const median = (array) => {
   }
 }
 // Uncomment out the next line to test your solution
- runQ7Tests()
+// runQ7Tests()
 
 // Question Eight:
 // Write a function called addAllStudents that takes in an array of Classroom objects (described below) and returns the total number of students
@@ -211,7 +211,7 @@ const getAllNames = (array) => {
   result = names.join(',')
   return result
 }
- runQ15Tests()
+// runQ15Tests()
 
 // The code below is used to test your solutions.  Feel free to look over it, but do not change any of it.
 

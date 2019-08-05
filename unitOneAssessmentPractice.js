@@ -4,49 +4,160 @@ let assert = require('assert')
 
 // Write a function called double that doubles a number
 
+
+
+function double(number){
+  return number * 2
+}
+
+
+
 // Uncomment out the next line to test your solution
 // runQ1Tests()
-
 // Question Two:
 
 // Write a function called containsSeven that returns whether or not a number has an sevens in it.
 
+function containsSeven(num){
+  let num2 = num.toString();
+  if(num2.includes(7)) {
+    return true
+  }else{
+    return false
+  }
+}
+
+
+
 // Uncomment out the next line to test your solution
-// runQ2Tests()
+runQ2Tests()
+
+
+
+
 
 // Question Three:
 
 // Write a function called capitalizeTheAs the capitalizes all of the lowercase "a"s in a string leaving all other characters the same
 
+
+
+function capitalizeTheAs(word) {
+  let string = '';
+  for(let i = 0; i < word.length; i++){
+    if (word[i].includes('a')){
+      string += word[i].toUpperCase()
+    }else{
+      string += word[i]
+    }
+  }
+  return string
+}
+
+
+
 // Uncomment out the next line to test your solution
-// runQ3Tests()
+runQ3Tests()
 
 // Question Four:
 // Write a function called largest that returns the largest value in an array
 
+
+
+function largest(arr){
+  let begArr = arr[0]
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i] > begArr){
+      begArr = arr[i]
+    }
+  }
+  return begArr
+}
+
+
+
 // Uncomment out the next line to test your solution
-// runQ4Tests()
+runQ4Tests()
 
 // Question Five:
 // Write a function called average that returns the average of an array
 
+
+
+function average(arr) {
+  let sum = 0
+  for(let i= 0; i< arr.length; i++){
+    sum += arr[i]
+  }
+  return sum / arr.length
+}
+
+
+
 // Uncomment out the next line to test your solution
-// runQ5Tests()
+runQ5Tests()
 
 // Question Six:
 // Write a function called mode that returns the most frequently occurring number in an array
 // HINT: Use an object where the keys are the numbers, and the values are how many times they appear in the array.
 
+
+
+const mode = (arr) => {
+  let countObj = {}
+  for(let num of arr){
+    if(countObj[num] === undefined){
+      countObj[num] = 1
+    }else{
+      countObj[num]++;
+    }
+  }
+  let mostCommonNum = arr[0];
+  let mostCommonCount = countObj[mostCommonNum]
+  for(let num in countObj){
+    if(countObj[num] > mostCommonCount){
+      mostCommonNum = num;
+      mostCommonCount = countObj[num]
+    }
+
+  }
+  return parseInt(mostCommonNum)
+}
+
+
+
 // Uncomment out the next line to test your solution
-// runQ6Tests()
+runQ6Tests()
 
 // Question Seven: (BONUS)
 // Write a function called median that returns the most median number in an array
 // HINT: You'll need to sort the array first
 // This one's also a bit tricky, feel free to skip it and come back to it.
 
+
+
+function median(array){
+  let med = array.sort((a,b) => (a-b))
+  let newMed2 = med[Math.floor(med.length/2)-1]
+  let newMed3 = med[Math.ceil(med.length/2)]
+  let med1= med[Math.floor(med.length/2)]
+// console.log(med)
+for(let i = 0; i < array.length; i++){
+
+  if (array.length % 2 === 0){
+      return (newMed2 + newMed3)/2
+    }else{
+    return med1
+    }
+
+  }
+
+}
+
+
+
 // Uncomment out the next line to test your solution
-// runQ7Tests()
+runQ7Tests()
 
 // Question Eight:
 // Write a function called addAllStudents that takes in an array of Classroom objects (described below) and returns the total number of students
@@ -54,21 +165,27 @@ let assert = require('assert')
 // Sample input:
 // [{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]
 
-// Sample output:
-// 80
-
+function addAllStudents(sumOfStudents){
+  let sum = 0
+  for(let i = 0; i < sumOfStudents.length; i++){
+    sum += sumOfStudents[i].numberOfStudents
+  }
+  return sum
+}
 // Uncomment out the next line to test your solution
-// runQ8Tests()
+
+runQ8Tests()
 
 
 // Question Nine:
-// Write a function called getSmallestClassObject that takes in an array of Classroom objects (described below) and returns the object with the fewest students
+// Write a function called fewestStudents that takes in an array of Classroom objects (described below) and returns the object with the fewest students
 
 // Sample input:
 // [{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]
 
 // Sample output:
 // {teacher: "Professor McGonagall", numberOfStudents: 20}
+
 
 // Uncomment out the next line to test your solution
 // runQ9Tests()
@@ -82,9 +199,19 @@ let assert = require('assert')
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
 
-// Uncomment out the next line to test your solution
-// runQ10Tests()
 
+
+function doubleAllElements(arr){
+  let result = arr.map ((currentElem) =>{
+    return currentElem * 2
+  })
+  return result
+}
+
+
+
+// Uncomment out the next line to test your solution
+runQ10Tests()
 
 // Question Eleven:
 
@@ -92,17 +219,32 @@ let assert = require('assert')
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
 
+
+
+function onlyLongStrings(arr){
+  let result = arr.filter((currentElem) =>{
+    if(currentElem.length >3){
+    return currentElem
+  }
+  })
+  return result
+}
+
+
+
 // Uncomment out the next line to test your solution
-// runQ11Tests()
+runQ11Tests()
 
 // Question Twelve:
 
 // Write a function called containsOnlyNumbers that returns whether or not an array contains only numbers
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Hint: the isNaN() function will tell you whether something is not a number
-
+const containsOnlyNumbers = (arr) => {
+  return arr.every(elem => !isNaN (elem))
+}
 // Uncomment out the next line to test your solution
-// runQ12Tests()
+runQ12Tests()
 
 // Question Thirteen:
 

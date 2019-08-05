@@ -330,9 +330,25 @@ runQ14Tests()
 
 // Question Fifteen:
 
+const getAllNames = (arr) => {
+  let namesOnly = []
+  for (let obj of arr) {
+    console.log(obj)
+    Object.keys(obj).forEach(function(key) {
+      console.log(key)
+      console.log(obj[key])
+      if (key === "name") {
+        console.log("FOUND")
+        namesOnly.push(obj[key])
+      }
+    })
+  }
+  return namesOnly.join(",")
+}
+
 // Write a function called getAllNames that takes in an array of Person objects and returns a string with all of the names joined together with a ","
 
-// runQ15Tests()
+runQ15Tests()
 
 // The code below is used to test your solutions.  Feel free to look over it, but do not change any of it.
 

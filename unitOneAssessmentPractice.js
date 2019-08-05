@@ -3,9 +3,12 @@ let assert = require('assert')
 // Question One:
 
 // Write a function called double that doubles a number
-
+function double(num) {
+  return num*2;
+}
+double(14);
 // Uncomment out the next line to test your solution
-// runQ1Tests()
+runQ1Tests()
 
 // Question Two:
 

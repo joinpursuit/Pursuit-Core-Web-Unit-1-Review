@@ -83,37 +83,47 @@ runQ5Tests()
 // HINT: Use an object where the keys are the numbers, and the values are how many times they appear in the array.
 
 
-// const mode = (arr) => {
-//   let obj = {};
-//   for(num of arr){
-//     if(countObj[num] === undefined){
-//       countObj[num]=1
-//     } else{
-//       countObj[num]++;
-//     }
-//   }
-// return countObj
-// }
-//
-// let mostCommonNum = arr[0];
-// let mostCommonCount = countObj[mostCommonNum];
-// for(let num in countObj){
-//   if(countObj[num] > mostCommonCount){
-//     mostCommonNum = num;
-//     mostCommonCount = countObj[num];
-//   }
-//
-// }
+const mode = (arr) => {
+  let obj = {};
+  for(let i = 0; i < arr.length; i++){
+    if(obj[arr[i]]){
+      obj[arr[i]]++
+    } else{
+      obj[arr[i]] = 1
+    }
+  }
+
+
+let biggest;
+let biggestValue = 0;
+for(let key in obj){
+  if(biggestValue < obj[key]){
+    biggestValue = obj[key];
+    biggest = key;
+  }
+
+}
+return Number(biggest)
+}
 // // Uncomment out the next line to test your solution
-// runQ6Tests()
+runQ6Tests()
 
 // Question Seven: (BONUS)
 // Write a function called median that returns the most median number in an array
 // HINT: You'll need to sort the array first
 // This one's also a bit tricky, feel free to skip it and come back to it.
+const median = (arr) =>{
+  let sortedArray = arr.sort(function(a,b){return (a-b)})
+  if(sortedArray.length % 2 !==0){
+    let arrayIdx = Math.floor(sortedArray.length/2)
+    return sortedArray[arrayIdx]
+  }else{
+    return (sortedArray[sortedArray.length/2] + sortedArray[(sortedArray.length/2) -1])/2;
+  }
+}
 
 // Uncomment out the next line to test your solution
-// runQ7Tests()
+runQ7Tests()
 
 // Question Eight:
 // Write a function called addAllStudents that takes in an array of Classroom objects (described below) and returns the total number of students
@@ -142,16 +152,14 @@ runQ8Tests()
 // Sample input:
 // [{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]
 
-const getSmallestClassObject = (arr)=>{
+const fewestStudents = (arr)=>{
   let smClass = arr[0];
-  let fewestStudents = smClass.numberOfStudents;
   for(let i = 1; i < arr.length; i++){
-    if(arr[i].numberOfStudents < smClass){
-      fewestStudents = arr[i].numberOfStudents;
+    if(arr[i].numberOfStudents < smClass.numberOfStudents){
       smClass = arr[i]
     }
-    return smClass
   }
+  return smClass
 }
 // // Sample output:
 // // {teacher: "Professor McGonagall", numberOfStudents: 20}
@@ -184,9 +192,16 @@ runQ10Tests()
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
 
+const onlyLongStrings = (arr) =>{
+  return arr.filter(string =>{
+    if(string.length > 3){
+      return string
+    }
+  })
+}
 
 // Uncomment out the next line to test your solution
-// runQ11Tests()
+runQ11Tests()
 
 // Question Twelve:
 
@@ -195,10 +210,9 @@ runQ10Tests()
 // Hint: the isNaN() function will tell you whether something is not a number
 const containsOnlyNumbers = (arr) =>{
   return arr.every(elem =>{
-    if(typeof(elem)==='number' ){
-      return true
+    if(typeof(elem)=== "number" ){
+      return false
     }
-    return false
   })
 }
 // Uncomment out the next line to test your solution
@@ -227,15 +241,31 @@ runQ13Tests()
 // Question Fourteen:
 
 // Write a function called getAllAdults that takes in an array of Person objects and returns an array with only Person objects with an age of at least 18
-
-
-// runQ14Tests()
+const getAllAdults = (arr) =>{
+  let over18 = [];
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i].age >= 18){
+      over18.push(arr[i])
+    }
+  }
+  return over18
+}
+runQ14Tests()
 
 // Question Fifteen:
 
 // Write a function called getAllNames that takes in an array of Person objects and returns a string with all of the names joined together with a ","
-//
-// runQ15Tests()
+
+const getAllNames = (arr) => {
+  let nameArray = [];
+  for(let i = 0; i < arr.length; i++){
+    nameArray.push(arr[i].name)
+  } let strArray = nameArray.toString()
+  return strArray
+}
+
+
+runQ15Tests()
 
 // The code below is used to test your solutions.  Feel free to look over it, but do not change any of it.
 

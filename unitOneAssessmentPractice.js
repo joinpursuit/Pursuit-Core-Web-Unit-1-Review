@@ -13,7 +13,7 @@ function double(number){
 
 
 // Uncomment out the next line to test your solution
-// runQ1Tests()
+runQ1Tests()
 // Question Two:
 
 // Write a function called containsSeven that returns whether or not a number has an sevens in it.
@@ -185,10 +185,15 @@ runQ8Tests()
 
 // Sample output:
 // {teacher: "Professor McGonagall", numberOfStudents: 20}
+function fewestStudents (arr){
+  let arr2 = arr[i].numberOfStudents
+  for(let i = 0; i < arr.length; i++){
+  console.log(arr2)
+}
 
 
 // Uncomment out the next line to test your solution
-// runQ9Tests()
+runQ9Tests()
 
 
 
@@ -250,20 +255,42 @@ runQ12Tests()
 
 // Make a class called Person that has two properties set by the constructor named age and name
 // Give it a method called isALegalAdult which returns true if the age is at least 18
-
-// runQ13Tests()
+class Person{
+  constructor(age, name){
+    this.age = age;
+    this.name = name;
+  }
+  isALegalAdult(){
+    return this.age >= 18;
+  }
+}
+runQ13Tests()
 
 // Question Fourteen:
 
-// Write a function called getAllAdults that takes in an array of Person objects and returns an array with only Person objects with an age of at least 18
-
-// runQ14Tests()
+// Write a function called getAllAdults that takes in an array of Person objects and returns an array with only
+// Person objects with an age of at least 18
+function getAllAdults(arr){
+  let result = arr.filter((currElem) => {
+    return  currElem.age >= 18
+  })
+  return result
+}
+runQ14Tests()
 
 // Question Fifteen:
 
-// Write a function called getAllNames that takes in an array of Person objects and returns a string with all of the names joined together with a ","
+// Write a function called getAllNames that takes in an array of Person objects and
+// returns a string with all of the names joined together with a ","
+function getAllNames(arr){
+  let newArr= []
+  for(let i = 0; i < arr.length; i++){
+     newArr.push(arr[i].name)
 
-// runQ15Tests()
+  }
+  return newArr.join(',')
+}
+runQ15Tests()
 
 // The code below is used to test your solutions.  Feel free to look over it, but do not change any of it.
 

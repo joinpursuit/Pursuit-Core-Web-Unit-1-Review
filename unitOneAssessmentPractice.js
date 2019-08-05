@@ -269,13 +269,14 @@ runQ11Tests()
 // Question Twelve:
 
 const containsOnlyNumbers = (arr) => {
-  const numberCheck = (element) => {
-    if (element > 0) {
-      return element
-    }
-  }
-  let numberFinder = arr.every(numberCheck)
-  return numberFinder
+  return arr.every(element => !isNaN(element))
+  // const numberCheck = (element) => {
+  //   if (element > 0) {
+  //     return element
+  //   }
+  // }
+  // let numberFinder = arr.every(numberCheck)
+  // return numberFinder
 }
 
 // Write a function called containsOnlyNumbers that returns whether or not an array contains only numbers
@@ -287,16 +288,45 @@ runQ12Tests()
 
 // Question Thirteen:
 
+class Person {
+  constructor(age, name) {
+    this.age = age
+    this.name = name
+  }
+
+  isALegalAdult() {
+    if (this.age >= 18) {
+      return true
+    } else {
+      return false
+    }
+  }
+}
+
 // Make a class called Person that has two properties set by the constructor named age and name
 // Give it a method called isALegalAdult which returns true if the age is at least 18
 
-// runQ13Tests()
+runQ13Tests()
 
 // Question Fourteen:
 
+const getAllAdults = (arr) => {
+  let adultSwim = []
+  for (let obj of arr) {
+    console.log(obj)
+    Object.keys(obj).forEach(function(key) {
+  if (obj[key] >= 18) {
+    console.log('exists');
+    adultSwim.push(obj)
+  }
+});
+  }
+  return adultSwim
+}
+
 // Write a function called getAllAdults that takes in an array of Person objects and returns an array with only Person objects with an age of at least 18
 
-// runQ14Tests()
+runQ14Tests()
 
 // Question Fifteen:
 

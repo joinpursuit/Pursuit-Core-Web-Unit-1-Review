@@ -95,13 +95,13 @@ function mode(arr) {
   let tallyObj = {};
   let mostFreqKey;
   let mostFreqValue = 0;
-  for (let el of arr) {
-    tallyObj[el] === undefined
-      ? tallyObj[el] = 1
-      : tallyObj[el] += 1;
-    if (tallyObj[el] > mostFreqValue) {
-      mostFreqValue = tallyObj[el];
-      mostFreqKey = el;
+  for (let num of arr) {
+    tallyObj[num] === undefined
+      ? tallyObj[num] = 1
+      : tallyObj[num] += 1;
+    if (tallyObj[num] > mostFreqValue) {
+      mostFreqValue = tallyObj[num];
+      mostFreqKey = num;
     }
   }
   return mostFreqKey;
@@ -119,30 +119,26 @@ debug(7);
 function median(arr) {
   let sortedArr = [];
   for (let i = 0; i < arr.length; i++) {
-    // console.log("-----\ni:",i, arr[i]); // debug
-    // console.log(sortedArr, "\n"); // debug
-
-    if (sortedArr.length === 0 || arr[i] > sortedArr[sortedArr.length - 1] || arr[i] === sortedArr[sortedArr.length - 1]) {
+    if (sortedArr.length === 0 || arr[i] >= sortedArr[sortedArr.length - 1]) {
       sortedArr.push(arr[i]);
     } else {
       let idxToSplice = 0;
       for (let j = 0; j < sortedArr.length; j++) {
-        if (sortedArr[j] > arr[i] || sortedArr[j] === arr[i]) {
-        } else {
+        if (arr[i] > sortedArr[j]) {
           idxToSplice++;
+          continue;
         }
+        break;
       }
       sortedArr.splice(idxToSplice, 0, arr[i]);
     }
   }
-  // console.log("output:", sortedArr, "\n"); // debug
   if (sortedArr.length % 2) {
-    return sortedArr[Math.floor(sortedArr.length / 2 )];
+    return sortedArr[(sortedArr.length - 1) / 2 ];
   } else {
     return (sortedArr[sortedArr.length / 2 - 1] + sortedArr[sortedArr.length / 2]) / 2;
   }
 }
-// median([3, 13, 7, 5, 21, 23, 23, 40, 23, 14, 12, 56, 23, 29]); // debug
 
 // Uncomment out the next line to test your solution
 runQ7Tests()
@@ -228,8 +224,8 @@ const containsOnlyNumbers = (arr) => {
   //   debug(typeof Number(el) === "number" && !Number.isNaN(Number(el)));
   //   debug(!Number.isNaN(el));
   // } )
-  return arr.every( el => {
-    return ( typeof Number(el) === "number" && !Number.isNaN(Number(el)) );
+  return arr.every( (el) => {
+    return !isNaN(el) ;
   })
 }
 

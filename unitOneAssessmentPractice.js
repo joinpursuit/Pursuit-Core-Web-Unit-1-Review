@@ -32,7 +32,15 @@ double(14);
 
 // Question Five:
 // Write a function called average that returns the average of an array
+function average(arr) {
+  let sum = 0;
+  for (let i=0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return (sum/arr.length);
+}
 
+average([2,4,6,8]);
 // Uncomment out the next line to test your solution
 // runQ5Tests()
 

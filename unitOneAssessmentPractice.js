@@ -34,10 +34,9 @@ function containsSeven(num) {
 function capitalizeTheAs(str) {
   for (let i = 0; i < str.length; i++) {
     if (str[i] === "a") {
-      str[i].toUpperCase();
+    return str.replace("a", "A");
     }
   }
-  return str;
 }
 capitalizeTheAs("giraffe");
 

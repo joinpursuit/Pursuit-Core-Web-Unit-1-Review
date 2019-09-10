@@ -45,6 +45,19 @@ capitalizeTheAs("giraffe");
 
 // Question Four:
 // Write a function called largest that returns the largest value in an array
+function largest(arr) {
+  let newLargest = "";
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > newLargest) {
+      newLargest = arr[i];
+    } else {
+      i++;
+    }
+  }
+  return newLargest;
+}
+
+largest([8,1,12,14,6]);
 
 // Uncomment out the next line to test your solution
 // runQ4Tests()

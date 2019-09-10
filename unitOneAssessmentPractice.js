@@ -13,6 +13,17 @@ double(14);
 // Question Two:
 
 // Write a function called containsSeven that returns whether or not a number has an sevens in it.
+function containsSeven(num) {
+ let newNum = num.toString();
+ for (let i = 0; i < newNum.length; i++) {
+   if (newNum[i] === "7") {
+    return true;
+   } else {
+    i++;
+   }
+ }
+}
+ containsSeven(5378);
 
 // Uncomment out the next line to test your solution
 // runQ2Tests()
@@ -20,6 +31,15 @@ double(14);
 // Question Three:
 
 // Write a function called capitalizeTheAs the capitalizes all of the lowercase "a"s in a string leaving all other characters the same
+function capitalizeTheAs(str) {
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === "a") {
+      str[i].toUpperCase();
+    }
+  }
+  return str;
+}
+capitalizeTheAs("giraffe");
 
 // Uncomment out the next line to test your solution
 // runQ3Tests()

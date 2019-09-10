@@ -183,6 +183,17 @@ doubleAllElements([2,4,6,8,10]);
 // Write a function called onlyLongStrings that removes all strings with 3 or fewer characters
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
+let longyArr = [];
+function onlyLongStrings(arr) {
+  arr.forEach(el => {
+    if (el.length > 3) {
+      longyArr.push(el);
+    }
+  })
+  return longyArr;
+}
+
+onlyLongStrings(["alpaca", "hen", "lu", "cat", "horse", "cow", "an"]);
 
 // Uncomment out the next line to test your solution
 // runQ11Tests()

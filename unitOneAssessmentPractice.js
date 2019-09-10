@@ -79,6 +79,24 @@ average([2,4,6,8]);
 // Question Six:
 // Write a function called mode that returns the most frequently occurring number in an array
 // HINT: Use an object where the keys are the numbers, and the values are how many times they appear in the array.
+// function mode(arr) {
+//  let frequencyObject = { thisIndex: 0, frequency: 0};
+//  for (let i = 0; i < arr.length; i++) {
+//    if (arr[i]) {
+//      frequencyObject.thisIndex = arr[i];
+//      frequencyObject.frequency += 1;
+//    }
+//    for (let j = 1; j < arr.length; j++) {
+//      if (arr[j] === arr[i]) {
+//        frequencyObject.frequency += 1;
+//        j++;
+//      }
+//      i++;
+//    }
+//  }
+// }
+//
+// mode([2,4,6,8,4,10]);
 
 // Uncomment out the next line to test your solution
 // runQ6Tests()
@@ -93,7 +111,15 @@ average([2,4,6,8]);
 
 // Question Eight:
 // Write a function called addAllStudents that takes in an array of Classroom objects (described below) and returns the total number of students
+function addAllStudents(arr) {
+  let totalStudents = 0;
+  for (let i = 0; i < arr.length; i++) {
+    totalStudents += arr[i].numberOfStudents;
+  }
+  return totalStudents;
+}
 
+addAllStudents([{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]);
 // Sample input:
 // [{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]
 

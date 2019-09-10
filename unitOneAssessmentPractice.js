@@ -131,7 +131,23 @@ addAllStudents([{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lop
 
 
 // Question Nine:
-// Write a function called getSmallestClassObject that takes in an array of Classroom objects (described below) and returns the object with the fewest students
+// Write a function called getSmallestClassObject that takes in an array of Classroom objects
+//(described below) and returns the object with the fewest students
+function getSmallestClassObject(arr) {
+let i = 0;
+let currentSmallestNumber = arr[0].numberOfStudents;
+let currentSmallestObject = arr[i];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i].numberOfStudents < currentSmallestNumber) {
+      currentSmallestNumber = arr[i].numberOfStudents;
+      currentSmallestObject = arr[i];
+      i++;
+    }
+  }
+  return currentSmallestObject;
+}
+
+getSmallestClassObject([{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]);
 
 // Sample input:
 // [{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]

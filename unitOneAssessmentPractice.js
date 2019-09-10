@@ -203,6 +203,17 @@ onlyLongStrings(["alpaca", "hen", "lu", "cat", "horse", "cow", "an"]);
 // Write a function called containsOnlyNumbers that returns whether or not an array contains only numbers
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Hint: the isNaN() function will tell you whether something is not a number
+function containsOnlyNumbers(arr) {
+  return arr.every(el => {
+   if (typeof(el) === "number") {
+      return true;
+    } else {
+      return false;
+    }
+  })
+}
+// containsOnlyNumbers([2,4,6,8,10]);
+containsOnlyNumbers([2, "cow", "sheep", 3]);
 
 // Uncomment out the next line to test your solution
 // runQ12Tests()

@@ -166,6 +166,13 @@ getSmallestClassObject([{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: 
 // Write a function called doubleAllElements that doubles each number in an array
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
+function doubleAllElements(arr) {
+  return arr.map((arrNum) => {
+    return arrNum*2;
+  })
+}
+
+doubleAllElements([2,4,6,8,10]);
 
 // Uncomment out the next line to test your solution
 // runQ10Tests()

@@ -116,7 +116,7 @@ const mode = (arr) => {
 // // HINT: You'll need to sort the array first
 // // This one's also a bit tricky, feel free to skip it and come back to it.
 
-const arr = [4,5,9,1]
+// const arr = [4,5,9,1]
 const median = (arr) => {
   arr.sort((a,b)=> a-b)
   if(arr.length %2 !== 0){
@@ -202,10 +202,10 @@ runQ10Tests()
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
 
-let str = ["star", "pit", "pencil", "it", "all"]
+// let str = ["star", "pit", "pencil", "it", "all"]
 const onlyLongStrings = (arr) => arr.filter((el) => el.length > 3)
 
-console.log(onlyLongStrings(str));
+// console.log(onlyLongStrings(str));
 
 // Uncomment out the next line to test your solution
 runQ11Tests()
@@ -216,27 +216,63 @@ runQ11Tests()
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Hint: the isNaN() function will tell you whether something is not a number
 
+const containsOnlyNumbers = (arr) => arr.every((el) => {
+          const num = Number(el)
+        return typeof num === "number" && !isNaN(num)
+    //  return isNaN(el)
+    })
+    
 // Uncomment out the next line to test your solution
-// runQ12Tests()
+runQ12Tests()
 
 // Question Thirteen:
 
 // Make a class called Person that has two properties set by the constructor named age and name
 // Give it a method called isALegalAdult which returns true if the age is at least 18
 
-// runQ13Tests()
+class Person {
+  constructor (age, name){
+    this.age = age;
+    this.name= name;
+  }
+  isALegalAdult (){
+    return this.age >= 18
+  }
+}
+runQ13Tests()
 
 // Question Fourteen:
+// Write a function called getAllAdults that takes in an array of Person objects and returns an array with only Person objects with an 
+// age of at least 18
 
-// Write a function called getAllAdults that takes in an array of Person objects and returns an array with only Person objects with an age of at least 18
+const getAllAdults = (arr) => {
+  const newArr =[]
+  for(let i=0; i < arr.length;i++){
+    if(arr[i].isALegalAdult()){
+      newArr.push(arr[i])
+    }
+  }
+  return newArr
+}
 
-// runQ14Tests()
+runQ14Tests()
 
 // Question Fifteen:
+// Write a function called getAllNames that takes in an array of Person objects and returns a string with all of the names joined 
+// together with a ","
 
-// Write a function called getAllNames that takes in an array of Person objects and returns a string with all of the names joined together with a ","
-
-// runQ15Tests()
+const getAllNames = (arr) => {
+  let str = ""
+  for(let i =0; i < arr.length; i++){
+    if(i === 0){
+      str += arr[i].name
+    }else {
+      str = str + "," + arr[i].name
+    }
+  }
+    return str
+}
+runQ15Tests()
 
 // The code below is used to test your solutions.  Feel free to look over it, but do not change any of it.
 

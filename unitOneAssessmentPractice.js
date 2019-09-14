@@ -80,7 +80,7 @@ average([2,4,6,8]);
 // Write a function called mode that returns the most frequently occurring number in an array
 // HINT: Use an object where the keys are the numbers, and the values are how many times they appear in the array.
 
-mode([2,4,6,8,4,10]);
+// mode([2,4,6,8,4,10]);
 
 // Uncomment out the next line to test your solution
 // runQ6Tests()
@@ -90,6 +90,19 @@ mode([2,4,6,8,4,10]);
 // HINT: You'll need to sort the array first
 // This one's also a bit tricky, feel free to skip it and come back to it.
 
+function median(arr) {
+  arr.sort(function(a,b) { return a-b});
+  if ((arr.length/2) % 2 === 0) {
+    let lowerMedian = (arr.length/2)-1;
+    let upperMedian = (arr.length/2);
+    return arr[Math.floor((lowerMedian + upperMedian)/2)];
+  } else {
+    if ((arr.length/2) % 2 !== 0) {
+      return arr[Math.floor(arr.length/2)];
+    }
+  }
+}
+median([2,4,6,8,10,12]);
 // Uncomment out the next line to test your solution
 // runQ7Tests()
 

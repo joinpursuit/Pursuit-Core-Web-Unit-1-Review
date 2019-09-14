@@ -92,12 +92,13 @@ average([2,4,6,8]);
 
 function median(arr) {
   arr.sort(function(a,b) { return a-b});
-  if ((arr.length/2) % 2 === 0) {
-    let lowerMedian = (arr.length/2)-1;
+  if (arr.length % 2 === 0) {
+    let lowerMedian = ((arr.length/2)-1);
     let upperMedian = (arr.length/2);
-    return arr[Math.floor((lowerMedian + upperMedian)/2)];
+    let bothMediansAverage = (lowerMedian + upperMedian)/2;
+    return arr[Math.floor(bothMediansAverage)];
   } else {
-    if ((arr.length/2) % 2 !== 0) {
+    if (arr.length % 2 !== 0) {
       return arr[Math.floor(arr.length/2)];
     }
   }

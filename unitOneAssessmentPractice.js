@@ -79,24 +79,8 @@ average([2,4,6,8]);
 // Question Six:
 // Write a function called mode that returns the most frequently occurring number in an array
 // HINT: Use an object where the keys are the numbers, and the values are how many times they appear in the array.
-// function mode(arr) {
-//  let frequencyObject = { thisIndex: 0, frequency: 0};
-//  for (let i = 0; i < arr.length; i++) {
-//    if (arr[i]) {
-//      frequencyObject.thisIndex = arr[i];
-//      frequencyObject.frequency += 1;
-//    }
-//    for (let j = 1; j < arr.length; j++) {
-//      if (arr[j] === arr[i]) {
-//        frequencyObject.frequency += 1;
-//        j++;
-//      }
-//      i++;
-//    }
-//  }
-// }
-//
-// mode([2,4,6,8,4,10]);
+
+mode([2,4,6,8,4,10]);
 
 // Uncomment out the next line to test your solution
 // runQ6Tests()
@@ -215,6 +199,16 @@ function containsOnlyNumbers(arr) {
 // containsOnlyNumbers([2,4,6,8,10]);
 containsOnlyNumbers([2, "cow", "sheep", 3]);
 
+//what's another way of doing this - both work, but this one is fewer lines
+function containsOnlyNumbers(arr) {
+  return arr.every(el => {
+    return typeof(el) === "number";
+  })
+}
+
+//so i need to use isNaN to pass the tests, even though i technically answered this because i have to account for
+//what NaN evaluates to...so I didn't answer thoroughly enough to consider everything that could be passed into
+
 // Uncomment out the next line to test your solution
 // runQ12Tests()
 
@@ -242,14 +236,34 @@ rafe.isALegalAdult();
 // runQ13Tests()
 
 // Question Fourteen:
+const getAllAdults = (arr) => {
+  let legalAgeGroup = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].isALegalAdult()) {
+      legalAgeGroup.push(Person);
+    }
+  }
+  return legalAgeGroup;
+}
 
-// Write a function called getAllAdults that takes in an array of Person objects and returns an array with only Person objects with an age of at least 18
+getAllAdults();
+
+// Write a function called getAllAdults that takes in an array of Person objects and returns an array with only Person objects
+//with an age of at least 18
 
 // runQ14Tests()
 
 // Question Fifteen:
 
-// Write a function called getAllNames that takes in an array of Person objects and returns a string with all of the names joined together with a ","
+// Write a function called getAllNames that takes in an array of Person objects and returns a string with all of the names joined
+//together with a ","
+const getAllNames = (arr) => {
+  let whoAreThesePeople = "";
+  for (let i = 0; i < arr.length; i++) {
+    whoAreThesePeople += `${arr[i].name} + ","`;
+  }
+  return whoAreThesePeople;
+}
 
 // runQ15Tests()
 

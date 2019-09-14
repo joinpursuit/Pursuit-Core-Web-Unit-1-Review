@@ -79,8 +79,22 @@ average([2,4,6,8]);
 // Question Six:
 // Write a function called mode that returns the most frequently occurring number in an array
 // HINT: Use an object where the keys are the numbers, and the values are how many times they appear in the array.
-
-// mode([2,4,6,8,4,10]);
+function mode(arr) {
+  for (let i = 0; i < arr.length; i++) {
+  let frequency = 1;
+  let currentNum = arr[i];
+  let howOften = {currentNum: frequency};
+  let nextNum = arr[i+1];
+  let currentFrequencyMax = 1;
+    if (currentNum === nextNum) {
+      frequency += 1;
+      nextNum ++;
+      currentFrequencyMax += 1;
+    } else {
+      nextNum++
+    }
+  }
+}
 
 // Uncomment out the next line to test your solution
 // runQ6Tests()

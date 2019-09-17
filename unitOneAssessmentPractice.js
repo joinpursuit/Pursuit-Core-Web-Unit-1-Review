@@ -14,15 +14,18 @@ double(14);
 
 // Write a function called containsSeven that returns whether or not a number has an sevens in it.
 function containsSeven(num) {
- let newNum = num.toString();
- for (let i = 0; i < newNum.length; i++) {
-   if (newNum[i] === "7") {
-    return true;
-   } else {
-    i++;
-   }
- }
+  let myNum = num.toString();
+  for (let i = 0; i < myNum.length; i++) {
+    if (myNum[i] === "7") {
+      return true;
+    } else if (myNum[i] !== "7" &&
+    (myNum[i] ===myNum[myNum.length-1])) {
+      return false;
+    }
+  }
 }
+//  containsSeven(538);
+//  containsSeven(7);
  containsSeven(5378);
 
 // Uncomment out the next line to test your solution
@@ -79,20 +82,24 @@ average([2,4,6,8]);
 // Question Six:
 // Write a function called mode that returns the most frequently occurring number in an array
 // HINT: Use an object where the keys are the numbers, and the values are how many times they appear in the array.
-function mode(arr) {
+
+function findFrequenciesObj(arr) {
   for (let i = 0; i < arr.length; i++) {
-  let frequency = 1;
-  let currentNum = arr[i];
-  let howOften = {currentNum: frequency};
-  let nextNum = arr[i+1];
-  let currentFrequencyMax = 1;
-    if (currentNum === nextNum) {
-      frequency += 1;
-      nextNum ++;
-      currentFrequencyMax += 1;
-    } else {
-      nextNum++
+    let iCount = 1;
+    let currentValue = arr[i];
+    let frequencies = Object.assign(currentValue, iCount);
+    // let frequencies = {currentValue, iCount};
+    for (let j = 1; j < arr.length; j++) {
+      if (arr[i] === arr[j]) {
+        iCount += 1;
+        j++
+      } else if (arr[i] !== arr[j]) {
+        j++;
+      }
+    //at the end of the loop add i's count to the frequencies object
+
     }
+    return frequencies;
   }
 }
 

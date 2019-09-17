@@ -54,9 +54,7 @@ function largest(arr) {
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] > newLargest) {
       newLargest = arr[i];
-    } else {
-      i++;
-    }
+    } 
   }
   return newLargest;
 }

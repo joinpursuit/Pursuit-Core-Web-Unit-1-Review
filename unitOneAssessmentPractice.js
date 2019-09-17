@@ -33,7 +33,8 @@ function containsSeven(num) {
 
 // Question Three:
 
-// Write a function called capitalizeTheAs the capitalizes all of the lowercase "a"s in a string leaving all other characters the same
+// Write a function called capitalizeTheAs the capitalizes all of the lowercase "a"s in a string
+//leaving all other characters the same
 function capitalizeTheAs(str) {
   for (let i = 0; i < str.length; i++) {
     if (str[i] === "a") {
@@ -49,7 +50,7 @@ capitalizeTheAs("giraffe");
 // Question Four:
 // Write a function called largest that returns the largest value in an array
 function largest(arr) {
-  let newLargest = "";
+  let newLargest = 0;
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] > newLargest) {
       newLargest = arr[i];

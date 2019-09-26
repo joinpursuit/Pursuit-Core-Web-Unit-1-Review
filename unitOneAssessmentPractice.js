@@ -82,24 +82,31 @@ average([2,4,6,8]);
 // Write a function called mode that returns the most frequently occurring number in an array
 // HINT: Use an object where the keys are the numbers, and the values are how many times they appear in the array.
 
-function findFrequenciesObj(arr) {
-  for (let i = 0; i < arr.length; i++) {
-    let iCount = 1;
-    let currentValue = arr[i];
-    let frequencies = Object.assign(currentValue, iCount);
-    // let frequencies = {currentValue, iCount};
-    for (let j = 1; j < arr.length; j++) {
-      if (arr[i] === arr[j]) {
-        iCount += 1;
-        j++
-      } else if (arr[i] !== arr[j]) {
-        j++;
-      }
-    //at the end of the loop add i's count to the frequencies object
+function mode (arr) {
+  let myObject = {};
+  let mostFrequentNumber;
+  let mostTimes = 0;
 
+  //how often does each number in my array appear? loop
+  for (let i = 0; i < arr.length; i++) {
+    if (myObject[(arr[i])]) {  //if my object already has a key AND that key is the number in my array
+      myObject[(arr[i])]++;   //then my object's value at this key aka for this array number +=1
+    } else {           //otherwise if don't have that array number as a key in my object already
+      myObject[(arr[i])] = 1; //then we say hey this object has this key and its value is 1 aka we've
+                              //now seen this key 1 time
     }
-    return frequencies;
   }
+  //so now i have an object, i can see in the object how many times each number in my array appears
+  //so now i just want to know, which one comes up the most often?
+  
+  //which number appears the most? loop
+  for (let key in myObject) {       //for each key in my object
+    if (myObject[key] > mostTimes) { //if the key's value is greater than the current most times
+      mostFrequentNumber = key;   //the most frequent is now that key
+      mostTimes = myObject[key];  //the most frequent value is now that key's value
+    }   //we don't need an else statement here - we execute based on the higher numbers
+  }
+  return mostFrequentNumber;
 }
 
 // Uncomment out the next line to test your solution

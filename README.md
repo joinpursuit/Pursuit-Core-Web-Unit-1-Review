@@ -1,4 +1,4 @@
-# Unit 1 Assessment
+# Unit 1 Assessment Practice
 
 The file `unitOneAssessmentPractice.js` includes the questions for the practice lab.
 

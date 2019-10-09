@@ -5,40 +5,95 @@ let assert = require('assert')
 // Write a function called double that doubles a number
 
 // Uncomment out the next line to test your solution
-// runQ1Tests()
 
+/ console.log('------#1---------')
+//
+const double = (num) => {
+  return num * 2
+}
+runQ1Tests()
+console.log(double(10))
 // Question Two:
 
 // Write a function called containsSeven that returns whether or not a number has an sevens in it.
 
 // Uncomment out the next line to test your solution
-// runQ2Tests()
+
+console.log('-------#2--------')
+
+const containsSeven = (num) => {
+  if (num.toString().includes('7') ) {
+    return true
+  } else {
+    return false
+  }
+}
+ runQ2Tests()
 
 // Question Three:
 
-// Write a function called capitalizeTheAs the capitalizes all of the lowercase "a"s in a string leaving all other characters the same
+// Write a function called capitalizeTheAs the capitalizes all of the lowercase "a"s in a string leaving
+// all other characters the same
 
-// Uncomment out the next line to test your solution
-// runQ3Tests()
+console.log('--------#3--------')
+
+const capitalizeTheAs = (str) => {
+  let upperCaseA = "";
+  for (let i = 0; i < str.length; i++) {
+    if ('a' === str[i]) {
+      upperCaseA += str[i].toUpperCase()
+  } else {
+    upperCaseA += str[i]
+  }
+
+}
+return upperCaseA
+}
+
+//Uncomment out the next line to test your solution
+runQ3Tests()
 
 // Question Four:
 // Write a function called largest that returns the largest value in an array
 
-// Uncomment out the next line to test your solution
-// runQ4Tests()
+console.log('------#4--------')
+
+const largest = (arr, currEl) => {
+  // let newArr = arr.reduce ((acc, currEl) => {
+    let  largestValue = -Infinity;
+    for (let currEl of arr) {
+    if (currEl > largestValue) {
+     largestValue = currEl
+  }
+}
+    return largestValue
+
+//return Math.max.apply(Math, arr)
+}
+
+// // Uncomment out the next line to test your solution
+runQ4Tests()
 
 // Question Five:
 // Write a function called average that returns the average of an array
 
+console.log('--------#5--------')
+const average = (arr) => {
+  let total = arr.reduce((acc, elem) => {
+    acc += elem
+    return acc
+})
+return total / arr.length
+}
 // Uncomment out the next line to test your solution
-// runQ5Tests()
+ runQ5Tests()
 
 // Question Six:
 // Write a function called mode that returns the most frequently occurring number in an array
-// HINT: Use an object where the keys are the numbers, and the values are how many times they appear in the array.
+// HINT: Use an object where the keys 
 
 // Uncomment out the next line to test your solution
-// runQ6Tests()
+runQ6Tests()
 
 // Question Seven: (BONUS)
 // Write a function called median that returns the most median number in an array
@@ -49,8 +104,35 @@ let assert = require('assert')
 // runQ7Tests()
 
 // Question Eight:
-// Write a function called addAllStudents that takes in an array of Classroom objects (described below) and returns the total number of students
+// Write a function called addAllStudents that takes in an array of Classroom objects (described below) and
+// returns the total number of students
+console.log('-------#8---------')
+let obj1 = [
+  {
+    teacher: "Mr. Smith", numberOfStudents: 28
+  },
+  {
+    teacher: "Ms. Lopez", numberOfStudents: 32
+  },
+  {
+    teacher: "Professor McGonagall", numberOfStudents: 20
+  }]
+  const addAllStudents = (numberOfStudents) => {
+  return numberOfStudents.reduce((acc, item) => {
+      acc += item.numberOfStudents
+      console.log(acc)
+      return acc ;
+  }, 0)
+  let sum = 0
+  //   //for (let item of obj) {
+  // //     //console.log(item.numberOfStudents)
+  //      sum = item.numberOfStudents
+  //   }
+  //  return  sum
 
+}
+console.log(addAllStudents(obj1))
+// console.log(addAllStudents(item.numberOfStudents))
 // Sample input:
 // [{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]
 
@@ -58,20 +140,48 @@ let assert = require('assert')
 // 80
 
 // Uncomment out the next line to test your solution
-// runQ8Tests()
+  runQ8Tests()
 
 
 // Question Nine:
-// Write a function called getSmallestClassObject that takes in an array of Classroom objects (described below) and returns the object with the fewest students
+// Write a function called getSmallestClassObject that takes in an array of Classroom objects
+// (described below) and returns the object with the fewest students
+
+console.log('-------#9---------')
+
+// let obj2 = [
+//   {
+//     teacher: "Mr. Smith", numberOfStudents: 28
+//   },
+//    {
+//      teacher: "Ms. Lopez", numberOfStudents: 32
+//     },
+//   {teacher: "Professor McGonagall", numberOfStudents: 20
+// }
+// ]
+
+const getSmallestClassObject = (fewestStudents, item) => {
+  let items = obj1[item];
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].numberOfStudents === fewestStudents){
+      return items[i]
+    }
+  }
+console.log(getSmallestClassObject(item))
+
+
+
+
 
 // Sample input:
-// [{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]
+// [{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32},
+// {teacher: "Professor McGonagall", numberOfStudents: 20}]
 
 // Sample output:
 // {teacher: "Professor McGonagall", numberOfStudents: 20}
 
 // Uncomment out the next line to test your solution
-// runQ9Tests()
+ runQ9Tests()
 
 
 
@@ -82,8 +192,19 @@ let assert = require('assert')
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
 
+console.log('---------#10--------')
+
+const doubleAllElements = (arr) => {
+
+  let doubles = arr.map(elem => {
+   return elem * 2
+  })
+  return doubles
+}
+
+
 // Uncomment out the next line to test your solution
-// runQ10Tests()
+ runQ10Tests()
 
 
 // Question Eleven:
@@ -291,49 +412,49 @@ function runQ9Tests() {
   runTests("Nine", testCases, fewestStudents)
 }
 
-function runQ10Tests() {
-  let testCases = [
-    new TestCase(
-      [1,2,3,4,5,6,7],
-      [2,4,6,8,10,12,14]
-    ),
-    new TestCase(
-      [-2,-5,3],
-      [-4,-10,6]
-    ),
-    new TestCase(
-      [1.3,9.1,2.4],
-      [2.6,18.2,4.8]
-    ),
-    new TestCase(
-      [],
-      []
-    ),
-    new TestCase(
-      [0],
-      [0]
-    )
-  ]
-  runTests("Ten", testCases, doubleAllElements)
-}
+// function runQ10Tests() {
+//   let testCases = [
+//     new TestCase(
+//       [1,2,3,4,5,6,7],
+//       [2,4,6,8,10,12,14]
+//     ),
+//     new TestCase(
+//       [-2,-5,3],
+//       [-4,-10,6]
+//     ),
+//     new TestCase(
+//       [1.3,9.1,2.4],
+//       [2.6,18.2,4.8]
+//     ),
+//     new TestCase(
+//       [],
+//       []
+//     ),
+//     new TestCase(
+//       [0],
+//       [0]
+//     )
+//   ]
+//   runTests("Ten", testCases, doubleAllElements)
+// }
 
-function runQ11Tests() {
-  let testCases = [
-    new TestCase(
-      ["aaaa", "aa", "a", "aaaaaa"],
-      ["aaaa", "aaaaaa"]
-    ),
-    new TestCase(
-      ["abcd", "       ", ""],
-      ["abcd", "       "]
-    ),
-    new TestCase(
-      [".......", ".", "'''''''"],
-      [".......", "'''''''"]
-    )
-  ]
-  runTests("Eleven", testCases, onlyLongStrings)
-}
+// function runQ11Tests() {
+//   let testCases = [
+//     new TestCase(
+//       ["aaaa", "aa", "a", "aaaaaa"],
+//       ["aaaa", "aaaaaa"]
+//     ),
+//     new TestCase(
+//       ["abcd", "       ", ""],
+//       ["abcd", "       "]
+//     ),
+//     new TestCase(
+//       [".......", ".", "'''''''"],
+//       [".......", "'''''''"]
+//     )
+//   ]
+//   runTests("Eleven", testCases, onlyLongStrings)
+// }
 
 function runQ12Tests() {
   let testCases = [

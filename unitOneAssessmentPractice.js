@@ -4,22 +4,38 @@ let assert = require('assert')
 
 // Write a function called double that doubles a number
 
-// Uncomment out the next line to test your solution
+// const double = (numb) =>{
+//   return numb *2
+// }
+// // Uncomment out the next line to test your solution
 // runQ1Tests()
+
 
 // Question Two:
 
 // Write a function called containsSeven that returns whether or not a number has an sevens in it.
 
-// Uncomment out the next line to test your solution
+// const containsSeven = (numb) =>{
+//   if(numb.toString().includes("7")){
+//     return true
+//   } else {
+//     return false
+//   }
+// }
+
+// // Uncomment out the next line to test your solution
 // runQ2Tests()
 
 // Question Three:
 
 // Write a function called capitalizeTheAs the capitalizes all of the lowercase "a"s in a string leaving all other characters the same
 
+const capitalizeTheAs = (string) =>{
+  return string.replace(/a/gi, "A")
+}
+
 // Uncomment out the next line to test your solution
-// runQ3Tests()
+runQ3Tests()
 
 // Question Four:
 // Write a function called largest that returns the largest value in an array

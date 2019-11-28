@@ -4,15 +4,24 @@ let assert = require('assert')
 
 // Write a function called double that doubles a number
 
+const double = (num) => {
+  return num * 2;
+}
+
 // Uncomment out the next line to test your solution
-// runQ1Tests()
+runQ1Tests()
 
 // Question Two:
 
 // Write a function called containsSeven that returns whether or not a number has an sevens in it.
 
+const containsSeven = (num) => {
+  num = num + "";
+  return num.includes("7")
+}
+
 // Uncomment out the next line to test your solution
-// runQ2Tests()
+runQ2Tests()
 
 // Question Three:
 

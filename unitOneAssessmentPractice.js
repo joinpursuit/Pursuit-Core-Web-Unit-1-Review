@@ -9,7 +9,7 @@ const double = (num) => {
 }
 
 // Uncomment out the next line to test your solution
-runQ1Tests()
+// runQ1Tests()
 
 // Question Two:
 
@@ -21,11 +21,22 @@ const containsSeven = (num) => {
 }
 
 // Uncomment out the next line to test your solution
-runQ2Tests()
+// runQ2Tests()
 
 // Question Three:
 
 // Write a function called capitalizeTheAs the capitalizes all of the lowercase "a"s in a string leaving all other characters the same
+
+const capitalizeTheAs = (str) => {
+  let sep = str.split("");
+  for (let i = 0; i < sep.length; i++) {
+    if (sep[i] === "a") {
+      sep[i] = "A";
+    }
+  }
+  let res = sep.join("");
+  return res;
+}
 
 // Uncomment out the next line to test your solution
 // runQ3Tests()
@@ -33,14 +44,36 @@ runQ2Tests()
 // Question Four:
 // Write a function called largest that returns the largest value in an array
 
+
+
+const largest = (arr) => {
+  let largest = -Infinity;
+  for (let i = 0; i < arr.length; i++) {
+    // console.log(i)
+    if (arr[i] > largest) {
+      largest = arr[i];
+      console.log(arr[i])
+    }
+  }
+  return largest;
+}
+
 // Uncomment out the next line to test your solution
 // runQ4Tests()
 
 // Question Five:
 // Write a function called average that returns the average of an array
 
+const average = (arr) => {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i]
+  }
+  return sum/arr.length
+}
+
 // Uncomment out the next line to test your solution
-// runQ5Tests()
+runQ5Tests()
 
 // Question Six:
 // Write a function called mode that returns the most frequently occurring number in an array
@@ -65,6 +98,8 @@ runQ2Tests()
 
 // Sample output:
 // 80
+
+
 
 // Uncomment out the next line to test your solution
 // runQ8Tests()

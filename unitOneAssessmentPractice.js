@@ -1,18 +1,36 @@
+const debug = (logThis) => {
+  console.log(logThis);
+}
+
+
+
 let assert = require('assert')
+
 
 // Question One:
 
 // Write a function called double that doubles a number
+const double = num => 
+  num * 2
 
 // Uncomment out the next line to test your solution
-// runQ1Tests()
+runQ1Tests()
 
 // Question Two:
 
 // Write a function called containsSeven that returns whether or not a number has an sevens in it.
-
 // Uncomment out the next line to test your solution
-// runQ2Tests()
+const containsSeven = num => {
+  numAsStr = num + '';
+  for (let i of numAsStr) {
+    if (i === "7") {
+      return true;
+    }
+  }
+  return false;
+}
+
+runQ2Tests()
 
 // Question Three:
 

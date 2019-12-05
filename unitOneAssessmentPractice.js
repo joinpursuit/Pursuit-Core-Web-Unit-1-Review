@@ -4,12 +4,29 @@ let assert = require('assert')
 
 // Write a function called double that doubles a number
 
+const doubled = (num) => {
+  return num + num
+}
+
 // Uncomment out the next line to test your solution
 // runQ1Tests()
 
 // Question Two:
 
 // Write a function called containsSeven that returns whether or not a number has an sevens in it.
+
+const containsSeven = (num) => {
+  let stringedNum = num.toString()
+  for(let i =0; i < stringedNum.length; i++) {
+    if(stringedNum.includes(7)){
+      return true 
+    } else {
+      return false 
+    }
+  }
+  
+}
+
 
 // Uncomment out the next line to test your solution
 // runQ2Tests()
@@ -18,11 +35,38 @@ let assert = require('assert')
 
 // Write a function called capitalizeTheAs the capitalizes all of the lowercase "a"s in a string leaving all other characters the same
 
+const capitalizeTheAs = (str) => {
+  let newStr = "" 
+  for(let i = 0; i < str.length; i++){
+     if(str[i] !== "a"){
+       
+       newStr+= str[i]
+     } else if(str[i] === "a") {
+      newStr+= "A"
+     }
+   }
+   return newStr
+}
+
+
+
+
 // Uncomment out the next line to test your solution
 // runQ3Tests()
 
 // Question Four:
 // Write a function called largest that returns the largest value in an array
+
+const largest = (arr) => {
+  let largest = -Infinity
+  arr.forEach((el) => {
+    if(el > largest){
+      largest = el 
+    }
+  })
+  return largest 
+}
+
 
 // Uncomment out the next line to test your solution
 // runQ4Tests()
@@ -30,8 +74,19 @@ let assert = require('assert')
 // Question Five:
 // Write a function called average that returns the average of an array
 
+const average = (arr) => {
+  
+  let sum = 0
+  arr.forEach((el) => {
+    sum += el      
+
+  })
+  return sum/arr.length
+}
+
+
 // Uncomment out the next line to test your solution
-// runQ5Tests()
+runQ5Tests()
 
 // Question Six:
 // Write a function called mode that returns the most frequently occurring number in an array

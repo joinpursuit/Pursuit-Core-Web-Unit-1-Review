@@ -5,9 +5,9 @@ let assert = require('assert')
 // Write a function called double that doubles a number
 
 // Uncomment out the next line to test your solution
-// const double = (num) => {
-//   return num * 2
-// }
+const double = (num) => {
+  return num * 2
+}
 // runQ1Tests()
 
 // Question Two:
@@ -15,10 +15,10 @@ let assert = require('assert')
 // Write a function called containsSeven that returns whether or not a number has an sevens in it.
 
 // Uncomment out the next line to test your solution
-// const containsSeven = (number) => {
-//   let num = number.toString()
-//    return num.includes(7) ? true : false
-// }
+const containsSeven = (number) => {
+  let num = number.toString()
+   return num.includes(7) ? true : false
+}
 // runQ2Tests()
 
 // Question Three:
@@ -29,15 +29,27 @@ let assert = require('assert')
 const capitalizeTheAs = (str) => {
   let cap = ""
   for(let i = 0; i < str.length; i++) {
-    if(str[i] === "a") {
-      
-    }
+   if(str[i]==="a"){
+     cap+=str[i].toUpperCase()
+   } else {
+     cap+= str[i]
+   }
   }
+  return cap
 }
 // runQ3Tests()
 
 // Question Four:
 // Write a function called largest that returns the largest value in an array
+const largest = arr => {
+  let largest = arr[0]
+  for(let i = 1; i < arr.length; i++){
+    if(arr[i] > largest) {
+      largest = arr[i]
+    }
+  }
+  return largest
+}
 
 // Uncomment out the next line to test your solution
 // runQ4Tests()
@@ -45,12 +57,30 @@ const capitalizeTheAs = (str) => {
 // Question Five:
 // Write a function called average that returns the average of an array
 
+const average = arr => {
+  let sum = 0;
+  arr.forEach(el=>{
+    sum +=el
+  })
+  return sum/arr.length
+}
+
+// const average = arr => {
+//   return arr.reduce((acc, el)=>{
+//     return (acc + el)/arr.length
+//   })
+// }
+
 // Uncomment out the next line to test your solution
 // runQ5Tests()
 
 // Question Six:
 // Write a function called mode that returns the most frequently occurring number in an array
 // HINT: Use an object where the keys are the numbers, and the values are how many times they appear in the array.
+
+const mode = (arr) => {
+  let obj ={}
+}
 
 // Uncomment out the next line to test your solution
 // runQ6Tests()

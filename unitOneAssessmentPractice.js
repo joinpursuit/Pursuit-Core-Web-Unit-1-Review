@@ -113,8 +113,21 @@ runQ6Tests()
 // HINT: You'll need to sort the array first
 // This one's also a bit tricky, feel free to skip it and come back to it.
 
+const median = (arr) => {
+  let newArr = arr.sort(function(a, b){return a - b})
+  let med = 0 
+
+  if (arr.length % 2 === 1) {
+    med = newArr[Math.floor(newArr.length / 2)]
+  } else {
+    med = (newArr[newArr.length / 2] + newArr[newArr.length / 2 - 1] ) / 2
+  }
+
+  return med
+}
+
 // Uncomment out the next line to test your solution
-// runQ7Tests()
+runQ7Tests()
 
 // Question Eight:
 // Write a function called addAllStudents that takes in an array of Classroom objects (described below) and returns the total number of students

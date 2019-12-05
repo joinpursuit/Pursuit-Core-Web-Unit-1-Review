@@ -15,17 +15,17 @@ runQ1Tests()
 
 // Write a function called containsSeven that returns whether or not a number has an sevens in it.
 
-// const containsSeven = (num) => {
-//     let num1 = num.toString(); 
-//     for(let i = 0; i < num1.length; i++){
-//       if(num1[i] !== 7){
-//         return false
-//       } else {
-//         return true
-//       }
-//     }
+const containsSeven = (num) => {
+    let num1 = num.toString(); 
+    for(let i = 0; i < num1.length; i++){
+      if(num1[i] !== 7){
+        return false
+      } else {
+        return true
+      }
+    }
    
-// }
+}
 
 
 
@@ -37,21 +37,22 @@ runQ1Tests()
 // Write a function called capitalizeTheAs the capitalizes all of the lowercase "a"s in a string leaving all other characters the same
 
 // Uncomment out the next line to test your solution
-// runQ3Tests()
+runQ3Tests()
 
 const capitalizeTheAs = str =>{
   let newStr = '';
+  let letter = '';
   for (let i = 0; i < str.length; i++) {
-      c = str[i];
-    if (c == "a") {
-      newStr += c.toUpperCase();
+      letter = str[i];
+    if (letter == "a") {
+      newStr += letter.toUpperCase();
   } else {
-      newStr += c;
+      newStr += letter;
     }
   }
   return newStr
   }
-  console.log(capitalizeTheAs("crystal"))
+
 
 // Question Four:
 // Write a function called largest that returns the largest value in an array
@@ -60,20 +61,34 @@ const capitalizeTheAs = str =>{
 const largest = arr => {
   return Math.max(...arr)
 }
-
-console.log(largest([1,23,33,4,5,66]))
 // Uncomment out the next line to test your solution
 runQ4Tests()
 
 // Question Five:
 // Write a function called average that returns the average of an array
 
+const average = (arr) => {
+  let sum = 0
+  arr.forEach(i => {
+    sum += i
+  })
+  return sum/arr.length
+}
+
 // Uncomment out the next line to test your solution
-// runQ5Tests()
+runQ5Tests()
 
 // Question Six:
 // Write a function called mode that returns the most frequently occurring number in an array
 // HINT: Use an object where the keys are the numbers, and the values are how many times they appear in the array.
+
+const mode = (arr) => {
+  let count = {}
+  arr.forEach(el => {
+    
+  })
+
+}
 
 // Uncomment out the next line to test your solution
 // runQ6Tests()

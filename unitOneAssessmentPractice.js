@@ -3,47 +3,95 @@ let assert = require('assert')
 // Question One:
 
 // Write a function called double that doubles a number
+const double = (num) =>{
+  return num *2
+}
 
 // Uncomment out the next line to test your solution
-// runQ1Tests()
+ runQ1Tests()
 
 // Question Two:
 
 // Write a function called containsSeven that returns whether or not a number has an sevens in it.
+const containsSeven = (num) =>{
+  num = num.toString()
+  if(num.includes(7)){
+    return true
+  } else{
+    return false
+  }
+}
 
 // Uncomment out the next line to test your solution
-// runQ2Tests()
+ runQ2Tests()
 
 // Question Three:
 
 // Write a function called capitalizeTheAs the capitalizes all of the lowercase "a"s in a string leaving all other characters the same
+// const capitalizeTheAs = (string) =>{
+
+// }
 
 // Uncomment out the next line to test your solution
 // runQ3Tests()
 
 // Question Four:
 // Write a function called largest that returns the largest value in an array
+const largest = (arr) =>{
+  let largestNumber = -Infinity
+  arr.forEach((el)=>{
+    if(el>largestNumber){
+      largestNumber = el
+    }
+  })
+      return largestNumber
+}
+  console.log(largest([1,2,3,4,5]))
+
 
 // Uncomment out the next line to test your solution
-// runQ4Tests()
+ //runQ4Tests()
 
 // Question Five:
 // Write a function called average that returns the average of an array
 
+let average = (array) => array.reduce((a, b) => a + b) / array.length;
+
 // Uncomment out the next line to test your solution
-// runQ5Tests()
+ //runQ5Tests()
 
 // Question Six:
 // Write a function called mode that returns the most frequently occurring number in an array
 // HINT: Use an object where the keys are the numbers, and the values are how many times they appear in the array.
-
+const mode = (arr) => {
+  let newObj = {}
+  for (let number of arr) {
+      if (newObj[number] === undefined) {
+          newObj[number] = 1
+      } else {
+          newObj[number]++
+      }
+  }
+  let biggestValue = 0
+  let biggestKey
+  for (let key in newObj) {
+      if (newObj[key] > biggestValue) {
+          biggestValue = newObj[key]
+          biggestKey = key
+      }
+  }
+  return Number(biggestKey)
+}
 // Uncomment out the next line to test your solution
-// runQ6Tests()
+//runQ6Tests()
 
 // Question Seven: (BONUS)
 // Write a function called median that returns the most median number in an array
 // HINT: You'll need to sort the array first
 // This one's also a bit tricky, feel free to skip it and come back to it.
+
+
+
 
 // Uncomment out the next line to test your solution
 // runQ7Tests()
@@ -53,17 +101,33 @@ let assert = require('assert')
 
 // Sample input:
 // [{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]
+const addAllStudents = (arr) =>{
+  let sum = 0
+  for(let i = 0; i<arr.length; i++){
+    sum += (arr[i].numberOfStudents) 
+  }
+  return sum
+}
 
 // Sample output:
-// 80
+//80
 
 // Uncomment out the next line to test your solution
-// runQ8Tests()
+//runQ8Tests()
 
 
 // Question Nine:
 // Write a function called getSmallestClassObject that takes in an array of Classroom objects (described below) and returns the object with the fewest students
-
+const allStudents = (arr) =>{
+  let least = Infinity
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i].numberOfStudents < least){
+      least = arr[i].numberOfStudents
+    }
+  }
+    return least
+}
+console.log(allStudents(arr))
 // Sample input:
 // [{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]
 
@@ -81,9 +145,18 @@ let assert = require('assert')
 // Write a function called doubleAllElements that doubles each number in an array
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
+function doubleAllElements(arr) {
+  let newArr = arr.map((el) => {
+      return el * 2
+  })
+
+  return newArr
+}
+console.log(doubleAllElements([3, 5, 4, 4, 1, 1, 2, 3]))
 
 // Uncomment out the next line to test your solution
-// runQ10Tests()
+runQ10Tests()
+
 
 
 // Question Eleven:

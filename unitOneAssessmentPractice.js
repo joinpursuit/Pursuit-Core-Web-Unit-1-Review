@@ -4,6 +4,8 @@ let assert = require('assert')
 
 // Write a function called double that doubles a number
 
+const double = (num) => num * 2
+
 // Uncomment out the next line to test your solution
 // runQ1Tests()
 
@@ -14,6 +16,11 @@ let assert = require('assert')
 // Uncomment out the next line to test your solution
 // runQ2Tests()
 
+const containsSeven = (num) => {
+  let stringToNum = num.toString()
+  return stringNum.includes('7')
+}
+
 // Question Three:
 
 // Write a function called capitalizeTheAs the capitalizes all of the lowercase "a"s in a string leaving all other characters the same
@@ -21,14 +28,30 @@ let assert = require('assert')
 // Uncomment out the next line to test your solution
 // runQ3Tests()
 
+
+function capitalizeTheAs(str) {
+  let ans = str.split('');
+  ans = ans.map(letter => letter === 'a' ? letter.toUpperCase() : letter);
+  return ans.join('');
+}
+
+
 // Question Four:
 // Write a function called largest that returns the largest value in an array
+
+const largest = (arr) => arr.sort((a,b) => a - b)[arr.length - 1]
+
 
 // Uncomment out the next line to test your solution
 // runQ4Tests()
 
 // Question Five:
 // Write a function called average that returns the average of an array
+
+function average(arr) {
+  return arr.reduce((acc, num) => acc + num, 0) / arr.length;
+}
+
 
 // Uncomment out the next line to test your solution
 // runQ5Tests()
@@ -39,6 +62,7 @@ let assert = require('assert')
 
 // Uncomment out the next line to test your solution
 // runQ6Tests()
+
 
 // Question Seven: (BONUS)
 // Write a function called median that returns the most median number in an array

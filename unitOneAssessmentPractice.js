@@ -63,9 +63,28 @@ runQ5Tests()
 // Question Six:
 // Write a function called mode that returns the most frequently occurring number in an array
 // HINT: Use an object where the keys are the numbers, and the values are how many times they appear in the array.
+  const mode = (arr) => {
+    let occurences = {}
+    let mostFreq;
+    let num = -Infinity
+    arr.forEach((el) => {
+      if (occurences[el]) {
+        occurences[el]++
+      } else {
+        occurences[el] = 1
+      }
+    })
+    for (let key in occurences){
+      if (occurences[key] > num){
 
+        num = occurences[key]
+        mostFreq = Number(key)
+      }
+    }
+    return mostFreq
+  }
 // Uncomment out the next line to test your solution
-// runQ6Tests()
+runQ6Tests()
 
 // Question Seven: (BONUS)
 // Write a function called median that returns the most median number in an array

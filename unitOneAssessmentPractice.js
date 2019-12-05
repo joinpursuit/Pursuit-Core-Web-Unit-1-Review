@@ -1,44 +1,86 @@
 let assert = require('assert')
-
 // Question One:
-
 // Write a function called double that doubles a number
-
 // Uncomment out the next line to test your solution
-// runQ1Tests()
-
+const double = (num) => {
+  return num * 2
+}
+runQ1Tests()
 // Question Two:
-
 // Write a function called containsSeven that returns whether or not a number has an sevens in it.
-
 // Uncomment out the next line to test your solution
-// runQ2Tests()
-
+const containsSeven = (num) => {
+  let str = num + "";
+  return str.includes(7) ? true : false
+}
+ runQ2Tests()
 // Question Three:
-
 // Write a function called capitalizeTheAs the capitalizes all of the lowercase "a"s in a string leaving all other characters the same
-
+  const capitalizeTheAs = (str) => {
+    let newStr = "";
+    for (let i = 0; i < str.length; i++){
+      if(str[i] === "a"){
+        newStr += str[i].toUpperCase()
+      } else {
+        newStr += str[i]
+      }
+    }
+    return newStr
+  }
 // Uncomment out the next line to test your solution
-// runQ3Tests()
-
+runQ3Tests()
 // Question Four:
 // Write a function called largest that returns the largest value in an array
-
+  const largest = (array) => {
+    let largestn = -Infinity;
+    array.forEach(element => {
+      if (element > largestn) {
+        largestn = element 
+      }
+    })
+    return largestn
+  }
 // Uncomment out the next line to test your solution
-// runQ4Tests()
-
+ runQ4Tests()
 // Question Five:
 // Write a function called average that returns the average of an array
 
+const average = (arr) => {
+  let sum = 0;
+  arr.forEach(el =>{
+    sum += el
+  })
+  return sum / arr.length
+}
 // Uncomment out the next line to test your solution
-// runQ5Tests()
-
+ runQ5Tests()
 // Question Six:
 // Write a function called mode that returns the most frequently occurring number in an array
 // HINT: Use an object where the keys are the numbers, and the values are how many times they appear in the array.
+const mode = (arr) => {
+  let obj = {}
+  let large = 0;
+  let num;
+  // let counter = 0
+  arr.forEach(el => {
+    if(obj[el]){
+      obj[el]++
+    } else {
+      obj[el] = 1
+    }
+  })
+  for(key in obj){
+    if(obj[key] >= large){
+      large = obj[key]
+      num = key
+    }
+  }
+return Number(num)
 
+
+}
 // Uncomment out the next line to test your solution
-// runQ6Tests()
+runQ6Tests()
 
 // Question Seven: (BONUS)
 // Write a function called median that returns the most median number in an array
@@ -46,85 +88,124 @@ let assert = require('assert')
 // This one's also a bit tricky, feel free to skip it and come back to it.
 
 // Uncomment out the next line to test your solution
-// runQ7Tests()
+function median(arr) {
+  const mid = Math.floor(arr.length / 2),
+  nums = arr.sort((a, b) => a - b);
+if (arr.length % 2 !== 0){
+  return nums[mid]
+} else {
+    return(nums[mid - 1] + nums[mid]) / 2
+}
+
+}
+runQ7Tests()
 
 // Question Eight:
 // Write a function called addAllStudents that takes in an array of Classroom objects (described below) and returns the total number of students
-
 // Sample input:
 // [{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]
-
 // Sample output:
 // 80
 
 // Uncomment out the next line to test your solution
-// runQ8Tests()
 
+const addAllStudents = (arr) => {
+  let tot = 0
+arr.forEach((el) => {
+  tot += el.numberOfStudents
+})
+  return tot;
+}
+runQ8Tests()
 
 // Question Nine:
 // Write a function called getSmallestClassObject that takes in an array of Classroom objects (described below) and returns the object with the fewest students
-
 // Sample input:
 // [{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]
-
 // Sample output:
 // {teacher: "Professor McGonagall", numberOfStudents: 20}
 
 // Uncomment out the next line to test your solution
-// runQ9Tests()
-
-
-
+const fewestStudents = (arr) => {
+  let fewerStudents = arr[0];
+  arr.forEach((el) => {
+    if(el.numberOfStudents < fewerStudents.numberOfStudents){
+          fewerStudents = el
+    }
+  })
+  return fewerStudents
+}
+runQ9Tests()
 
 // Question Ten:
-
 // Write a function called doubleAllElements that doubles each number in an array
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
 
 // Uncomment out the next line to test your solution
-// runQ10Tests()
-
+const doubleAllElements = (num) => {
+  let double = num.map((num) =>{
+    return num * 2
+  })
+  return double
+}
+runQ10Tests()
 
 // Question Eleven:
-
 // Write a function called onlyLongStrings that removes all strings with 3 or fewer characters
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
 
 // Uncomment out the next line to test your solution
-// runQ11Tests()
+const onlyLongStrings = (string) => {
+  let strLength = string.filter((string)=> {
+    return string.length > 3
+  })
+return strLength
+}
+runQ11Tests()
 
 // Question Twelve:
-
 // Write a function called containsOnlyNumbers that returns whether or not an array contains only numbers
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Hint: the isNaN() function will tell you whether something is not a number
 
 // Uncomment out the next line to test your solution
-// runQ12Tests()
+const containsOnlyNumbers = (arr) => {
+  return arr.every(elem => {
+    !isNaN(elem)
+  })
+  }
+runQ12Tests()
 
 // Question Thirteen:
-
 // Make a class called Person that has two properties set by the constructor named age and name
 // Give it a method called isALegalAdult which returns true if the age is at least 18
 
-// runQ13Tests()
+class Person {
+  constructor(age, name){
+    this.name = name;
+    this.age = age;
+  }
+  isALegalAdult(){
+    if(this.age >= 18){
+      return true
+    }else{
+      return false
+    }
+  }
+}
+runQ13Tests()
 
 // Question Fourteen:
-
 // Write a function called getAllAdults that takes in an array of Person objects and returns an array with only Person objects with an age of at least 18
-
 // runQ14Tests()
 
 // Question Fifteen:
-
 // Write a function called getAllNames that takes in an array of Person objects and returns a string with all of the names joined together with a ","
 
 // runQ15Tests()
-
 // The code below is used to test your solutions.  Feel free to look over it, but do not change any of it.
-
 function TestCase(input, output) {
   this.input = input
   this.output = output
@@ -132,7 +213,6 @@ function TestCase(input, output) {
     return JSON.stringify(this.input)
   }
 }
-
 function runTests(questionNum, testCases, testCallback) {
   console.log(`Question ${questionNum} Tests`)
   try {
@@ -151,7 +231,6 @@ function runTests(questionNum, testCases, testCallback) {
     }
   }
 }
-
 function runQ1Tests() {
   let testCases = [
     new TestCase(3,6),
@@ -162,7 +241,6 @@ function runQ1Tests() {
   ]
   runTests("One", testCases, double)
 }
-
 function runQ2Tests() {
   let testCases = [
     new TestCase(7, true),
@@ -172,7 +250,6 @@ function runQ2Tests() {
   ]
   runTests("Two", testCases, containsSeven)
 }
-
 function runQ3Tests() {
   let testCases = [
     new TestCase("Hello world!", "Hello world!"),
@@ -183,7 +260,6 @@ function runQ3Tests() {
   ]
   runTests("Three", testCases, capitalizeTheAs)
 }
-
 function runQ4Tests() {
   let testCases = [
     new TestCase([1,2,3,4,5,6,7,8], 8),
@@ -194,7 +270,6 @@ function runQ4Tests() {
   ]
   runTests("Four", testCases, largest)
 }
-
 function runQ5Tests() {
   let testCases = [
     new TestCase([3,4,5], 4),
@@ -206,7 +281,6 @@ function runQ5Tests() {
   ]
   runTests("Five", testCases, average)
 }
-
 function runQ6Tests() {
   let testCases = [
     new TestCase([1,2,3,4,5,2],2),
@@ -217,7 +291,6 @@ function runQ6Tests() {
   ]
   runTests("Six", testCases, mode)
 }
-
 function runQ7Tests() {
   let testCases = [
     new TestCase([2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31], 13),
@@ -228,7 +301,6 @@ function runQ7Tests() {
   ]
   runTests("Seven", testCases, median)
 }
-
 function runQ8Tests() {
   let testCases = [
     new TestCase(
@@ -259,7 +331,6 @@ function runQ8Tests() {
   ]
   runTests("Eight", testCases, addAllStudents)
 }
-
 function runQ9Tests() {
   let testCases = [
     new TestCase(
@@ -290,7 +361,6 @@ function runQ9Tests() {
   ]
   runTests("Nine", testCases, fewestStudents)
 }
-
 function runQ10Tests() {
   let testCases = [
     new TestCase(
@@ -316,7 +386,6 @@ function runQ10Tests() {
   ]
   runTests("Ten", testCases, doubleAllElements)
 }
-
 function runQ11Tests() {
   let testCases = [
     new TestCase(
@@ -334,7 +403,6 @@ function runQ11Tests() {
   ]
   runTests("Eleven", testCases, onlyLongStrings)
 }
-
 function runQ12Tests() {
   let testCases = [
     new TestCase(
@@ -360,7 +428,6 @@ function runQ12Tests() {
   ]
   runTests("Twelve", testCases, containsOnlyNumbers)
 }
-
 function runQ13Tests() {
   let testCases = [
     new TestCase(new Person(19, "a"), true),
@@ -371,7 +438,6 @@ function runQ13Tests() {
   ]
   runTests("Thirteen", testCases, person => person.isALegalAdult())
 }
-
 function runQ14Tests() {
   let testCases = [
     new TestCase( [
@@ -405,7 +471,6 @@ function runQ14Tests() {
   ]
   runTests("Fourteen", testCases, getAllAdults)
 }
-
 function runQ15Tests() {
   let testCases = [
     new TestCase( [

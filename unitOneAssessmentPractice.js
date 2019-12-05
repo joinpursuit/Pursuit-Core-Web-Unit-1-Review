@@ -100,12 +100,19 @@ const mode = (arr) => {
 
 // Sample input:
 // [{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]
+const addAllStudents = (arr) =>{
+  let sum = 0
+  for(let i = 0; i<arr.length; i++){
+    sum += (arr[i].numberOfStudents) 
+  }
+  return sum
+}
 
 // Sample output:
-// 80
+//80
 
 // Uncomment out the next line to test your solution
-// runQ8Tests()
+//runQ8Tests()
 
 
 // Question Nine:

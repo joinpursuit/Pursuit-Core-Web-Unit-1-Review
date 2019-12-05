@@ -44,11 +44,11 @@ runQ3Tests()
 // Question Four:
 // Write a function called largest that returns the largest value in an array
 
-const largest = (arr) => {
-  for(let i = 0; i < Infinity; i++) {
-    if(arr[i] > )
-  }
-}
+// const largest = (arr) => {
+//   for(let i = 0; i < Infinity; i++) {
+//     if(arr[i] > )
+//   }
+// }
 
 // Uncomment out the next line to test your solution
 // runQ4Tests()
@@ -70,6 +70,17 @@ const largest = (arr) => {
 // Write a function called median that returns the most median number in an array
 // HINT: You'll need to sort the array first
 // This one's also a bit tricky, feel free to skip it and come back to it.
+
+const median = (arr) => {
+  let sorted = arr.sort( (a,b) => a - b);
+  if (sorted.length % 2 === 0) {
+    return sorted[Math.floor((sorted.length - 1) / 2)];
+  } else {
+    
+  }
+}
+
+//??
 
 // Uncomment out the next line to test your solution
 // runQ7Tests()
@@ -108,8 +119,12 @@ const largest = (arr) => {
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
 
+const doubleAllElements = (arr) => {
+  return arr.map(ele => ele * 2);
+}
+
 // Uncomment out the next line to test your solution
-// runQ10Tests()
+runQ10Tests()
 
 
 // Question Eleven:
@@ -118,8 +133,12 @@ const largest = (arr) => {
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
 
+const onlyLongStrings = (arr) => {
+  return arr.filter(str => str.length > 3);
+}
+
 // Uncomment out the next line to test your solution
-// runQ11Tests()
+runQ11Tests()
 
 // Question Twelve:
 
@@ -127,20 +146,43 @@ const largest = (arr) => {
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Hint: the isNaN() function will tell you whether something is not a number
 
+const containsOnlyNumbers = (arr) => {
+  return arr.every(ele => !isNaN(ele));
+}
+
 // Uncomment out the next line to test your solution
-// runQ12Tests()
+runQ12Tests()
 
 // Question Thirteen:
 
 // Make a class called Person that has two properties set by the constructor named age and name
 // Give it a method called isALegalAdult which returns true if the age is at least 18
+ 
+// class Person {
+//   constructor(age, name) {
+//     this.age = age;
+//     this.name = name;
+//   }
+//   isALegalAdult() {
+//     if(this.age >= 18)
+//       return true;
+//   }
+// }
 
+// keeps returning undefined...
 // runQ13Tests()
 
 // Question Fourteen:
 
 // Write a function called getAllAdults that takes in an array of Person objects and returns an array with only Person objects with an age of at least 18
 
+// const getAllAdults = (arr) => {
+//   return arr.filter(el => {
+//     if(el.age >= 18) {
+//       return el
+//     }
+//   })
+// }
 // runQ14Tests()
 
 // Question Fifteen:

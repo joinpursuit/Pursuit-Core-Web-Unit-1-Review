@@ -49,22 +49,64 @@ runQ3Tests()
 
 // Question Four:
 // Write a function called largest that returns the largest value in an array
+const largest = (arr)=>{
+  let larg = -Infinity
+  arr.forEach(el =>{
+    if( el > larg){
+       larg = el
+    }
+  })
+  return larg
+
+}
 
 // Uncomment out the next line to test your solution
-// runQ4Tests()
+runQ4Tests()
 
 // Question Five:
 // Write a function called average that returns the average of an array
 
+const average = (arr) =>{
+  let sum = 0
+  arr.forEach(el=>{
+    sum += el
+  })
+
+  return sum/arr.length
+  
+}
+
 // Uncomment out the next line to test your solution
-// runQ5Tests()
+runQ5Tests()
 
 // Question Six:
 // Write a function called mode that returns the most frequently occurring number in an array
 // HINT: Use an object where the keys are the numbers, and the values are how many times they appear in the array.
 
+const mode = (arr) =>{
+  let numObj = {}
+  let frqNum = 0
+  let larg = -Infinity
+  arr.forEach(num=>{
+    if(numObj[num]){
+      numObj[num] +=1
+    } else{
+      numObj[num] = 1
+    }
+  })
+
+  for(let key in numObj){
+    if(numObj[key] > larg){
+      larg = numObj[key]
+      frqNum = key
+
+    }
+  }
+  return Number(frqNum)
+}
+
 // Uncomment out the next line to test your solution
-// runQ6Tests()
+runQ6Tests()
 
 // Question Seven: (BONUS)
 // Write a function called median that returns the most median number in an array

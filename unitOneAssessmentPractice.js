@@ -76,21 +76,63 @@ runQ5Tests()
 // Question Six:
 // Write a function called mode that returns the most frequently occurring number in an array
 // HINT: Use an object where the keys are the numbers, and the values are how many times they appear in the array.
+const arrOcc = (arr) => {
+  let obj = {};
+  arr.forEach((el) => {
+    if(obj[el]){
+      obj[el]++;
+    } else {
+      obj[el] = 1;
+    }
+  })
+  return obj;
+}
+
+// const counter = (arr) => {
+//   return arr.reduce((acc, el) => {
+//     acc[el] ? acc[el]++ : acc[el] = 1;
+//     return acc
+//   }, {})
+// }
 
 const mode =(arr)=>{
-  let obj = {};
-  
+  let obj =  arrOcc(arr);
+  let number;
+  let larg = -Infinity;
+  for(let key in obj){
+    if(obj[key] > larg){
+      larg = obj[key];
+      number = Number(key);
+    }
+  }
+  return number;
 }
 // Uncomment out the next line to test your solution
-// runQ6Tests()
+runQ6Tests()
 
 // Question Seven: (BONUS)
 // Write a function called median that returns the most median number in an array
 // HINT: You'll need to sort the array first
 // This one's also a bit tricky, feel free to skip it and come back to it.
 
+// const sortArray = (arr) => {
+
+//   return arr.reduce((acc,el) => {
+    
+//   }, []);
+// }
+
+const median = (arr) => {
+  arr.sort(function(a,b){return a-b});
+  console.log(arr)
+  if(arr.length % 2 === 1){
+    return arr[Math.floor(arr.length/2)];
+  } else {
+    return (arr[Math.floor(arr.length / 2 - 1)] + arr[Math.floor(arr.length/2)])/ 2;
+  }
+}
 // Uncomment out the next line to test your solution
-// runQ7Tests()
+runQ7Tests()
 
 // Question Eight:
 // Write a function called addAllStudents that takes in an array of Classroom objects (described below) and returns the total number of students
@@ -264,7 +306,7 @@ function runQ6Tests() {
 
 function runQ7Tests() {
   let testCases = [
-    new TestCase([2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31], 13),
+    new TestCase([31, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29], 13),
     new TestCase([12, 3, 5], 5),
     new TestCase([3, 13, 7, 5, 21, 23, 39, 23, 40, 23, 14, 12, 56, 23, 29], 23),
     new TestCase([3, 13, 7, 5, 21, 23, 23, 40, 23, 14, 12, 56, 23, 29], 22),

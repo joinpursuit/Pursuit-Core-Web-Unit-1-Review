@@ -3,40 +3,86 @@ let assert = require('assert')
 // Question One:
 
 // Write a function called double that doubles a number
+const double =(num)=>{
+  return num*2
+}
 
 // Uncomment out the next line to test your solution
-// runQ1Tests()
+runQ1Tests()
 
 // Question Two:
 
 // Write a function called containsSeven that returns whether or not a number has an sevens in it.
+const containsSeven = (num)=>{
+   //
+}
 
+  // for (let i=0; i<num.length; i++){
+
+  //   if(num[i]===7){
+  //     return true
+  //   }else{
+  //       false
+  //   }
+  // }
 // Uncomment out the next line to test your solution
 // runQ2Tests()
 
 // Question Three:
 
 // Write a function called capitalizeTheAs the capitalizes all of the lowercase "a"s in a string leaving all other characters the same
+const capitalizeTheAs = (str) =>{
+  let newStr = "";
+ for (let i=0;i<str.length;i++){
+   if(str[i]==="a"){
+     newStr+=("A")
+   }else{
+     newStr+=(str[i])
+   }
+ }
+  return newStr
+}
 
 // Uncomment out the next line to test your solution
-// runQ3Tests()
+runQ3Tests()
 
 // Question Four:
 // Write a function called largest that returns the largest value in an array
+const largest =(arr) =>{
+  let lag = arr[0];
+  for (let i=0;i<arr.length;i++){
+    if(lag<arr[i]){
+      lag=arr[i]
+    }
+  }
+  return lag
+}
 
 // Uncomment out the next line to test your solution
-// runQ4Tests()
+runQ4Tests()
+
 
 // Question Five:
 // Write a function called average that returns the average of an array
 
+const average =(arr)=>{
+  let sum=0;
+  for(let el in arr){
+    sum+=arr[el]
+  }
+  return (sum/(arr.length))
+}
 // Uncomment out the next line to test your solution
-// runQ5Tests()
+runQ5Tests()
 
 // Question Six:
 // Write a function called mode that returns the most frequently occurring number in an array
 // HINT: Use an object where the keys are the numbers, and the values are how many times they appear in the array.
 
+const mode =(arr)=>{
+  let obj = {};
+  
+}
 // Uncomment out the next line to test your solution
 // runQ6Tests()
 

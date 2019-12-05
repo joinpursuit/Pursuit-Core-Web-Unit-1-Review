@@ -4,7 +4,7 @@ let assert = require('assert')
 
 // Write a function called double that doubles a number
 
-cont double = (num) => num * 2
+const double = (num) => num * 2
 
 // Uncomment out the next line to test your solution
 // runQ1Tests()
@@ -17,7 +17,7 @@ cont double = (num) => num * 2
 // runQ2Tests()
 
 const containsSeven = (num) => {
-  let string\Num = num.toString()
+  let stringToNum = num.toString()
   return stringNum.includes('7')
 }
 

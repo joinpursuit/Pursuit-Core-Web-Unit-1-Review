@@ -117,17 +117,42 @@ const mode = (arr) => {
 // Sample input:
 // [{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]
 
+// const addAllStudents = (arr) => {
+//   let res = arr.filter(el => {
+//     return el['numberOfStudents']
+//   })
+//   let sum = 0;
+//   res.forEach(el => {
+//     el += sum
+//   })
+//   return sum;
+// }
+
+const addAllStudents = (arr) => {
+  let results = arr.filter(el => {
+    return el['numberOfStudents']
+  })
+  let sum = 0;
+  console.log(results)
+  
+  
+  for (let i = 0; i < results.length; i++) {
+    console.log(results[i] += sum)
+  }
+  // return sum
+}
+
 // Sample output:
 // 80
 
-const addAllStudents = (arr) => {
-  return arr.reduce((el, acc) => {
-    return acc + el.numberOfStudents;
-  }, 0)
-}
+// const addAllStudents = (arr) => {
+//   return arr.reduce((el, acc) => {
+//     return acc + el.numberOfStudents;
+//   }, 0)
+// }
 
 // Uncomment out the next line to test your solution
-// runQ8Tests()
+runQ8Tests()
 
 
 // Question Nine:
@@ -162,7 +187,7 @@ const doubleAllElements = (array) => {
 }
 
 // Uncomment out the next line to test your solution
-runQ10Tests()
+// runQ10Tests()
 
 
 // Question Eleven:

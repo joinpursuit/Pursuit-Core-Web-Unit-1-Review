@@ -3,9 +3,11 @@ let assert = require('assert')
 // Question One:
 
 // Write a function called double that doubles a number
-
+const double = (num) => {
+  return num + num
+}
 // Uncomment out the next line to test your solution
-// runQ1Tests()
+runQ1Tests()
 
 // Question Two:
 

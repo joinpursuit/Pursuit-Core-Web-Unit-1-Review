@@ -44,6 +44,7 @@ runQ3Tests()
  runQ4Tests()
 // Question Five:
 // Write a function called average that returns the average of an array
+
 const average = (arr) => {
   let sum = 0;
   arr.forEach(el =>{
@@ -69,64 +70,94 @@ const mode = (arr) => {
     }
   })
   for(key in obj){
-    if(key.value > large){
-      large = key.value
+    if(obj[key] >= large){
+      large = obj[key]
       num = key
     }
   }
-return num
+return Number(num)
+
+
 }
 // Uncomment out the next line to test your solution
 runQ6Tests()
+
 // Question Seven: (BONUS)
 // Write a function called median that returns the most median number in an array
 // HINT: You'll need to sort the array first
 // This one's also a bit tricky, feel free to skip it and come back to it.
+
 // Uncomment out the next line to test your solution
-// runQ7Tests()
+function median(arr) {
+  const mid = Math.floor(arr.length / 2),
+  nums = arr.sort((a, b) => a - b);
+if (arr.length % 2 !== 0){
+  return nums[mid]
+} else {
+    return(nums[mid - 1] + nums[mid]) / 2
+}
+
+}
+runQ7Tests()
+
 // Question Eight:
 // Write a function called addAllStudents that takes in an array of Classroom objects (described below) and returns the total number of students
 // Sample input:
 // [{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]
 // Sample output:
 // 80
+
 // Uncomment out the next line to test your solution
+
 // runQ8Tests()
+
 // Question Nine:
 // Write a function called getSmallestClassObject that takes in an array of Classroom objects (described below) and returns the object with the fewest students
 // Sample input:
 // [{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]
 // Sample output:
 // {teacher: "Professor McGonagall", numberOfStudents: 20}
+
 // Uncomment out the next line to test your solution
 // runQ9Tests()
+
 // Question Ten:
 // Write a function called doubleAllElements that doubles each number in an array
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
+
 // Uncomment out the next line to test your solution
 // runQ10Tests()
+
 // Question Eleven:
 // Write a function called onlyLongStrings that removes all strings with 3 or fewer characters
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
+
 // Uncomment out the next line to test your solution
 // runQ11Tests()
+
 // Question Twelve:
 // Write a function called containsOnlyNumbers that returns whether or not an array contains only numbers
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Hint: the isNaN() function will tell you whether something is not a number
+
 // Uncomment out the next line to test your solution
 // runQ12Tests()
+
 // Question Thirteen:
 // Make a class called Person that has two properties set by the constructor named age and name
 // Give it a method called isALegalAdult which returns true if the age is at least 18
+
 // runQ13Tests()
+
 // Question Fourteen:
 // Write a function called getAllAdults that takes in an array of Person objects and returns an array with only Person objects with an age of at least 18
 // runQ14Tests()
+
 // Question Fifteen:
 // Write a function called getAllNames that takes in an array of Person objects and returns a string with all of the names joined together with a ","
+
 // runQ15Tests()
 // The code below is used to test your solutions.  Feel free to look over it, but do not change any of it.
 function TestCase(input, output) {

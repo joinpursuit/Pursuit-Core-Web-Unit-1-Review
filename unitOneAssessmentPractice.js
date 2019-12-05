@@ -158,19 +158,24 @@ runQ12Tests()
 // Make a class called Person that has two properties set by the constructor named age and name
 // Give it a method called isALegalAdult which returns true if the age is at least 18
  
-// class Person {
-//   constructor(age, name) {
-//     this.age = age;
-//     this.name = name;
-//   }
-//   isALegalAdult() {
-//     if(this.age >= 18)
-//       return true;
-//   }
-// }
+
+class Person {
+  constructor(age, name) {
+    this.age = age;
+    this.name = name;
+  }
+  isALegalAdult() {
+    if(this.age >= 18) {
+      return true
+  } else {
+    return false
+  }
+}
+
+}
 
 // keeps returning undefined...
-// runQ13Tests()
+runQ13Tests()
 
 // Question Fourteen:
 

@@ -5,6 +5,9 @@ let assert = require('assert')
 // Write a function called double that doubles a number
 
 // Uncomment out the next line to test your solution
+// const double = (num) => {
+//   return num * 2
+// }
 // runQ1Tests()
 
 // Question Two:
@@ -12,6 +15,10 @@ let assert = require('assert')
 // Write a function called containsSeven that returns whether or not a number has an sevens in it.
 
 // Uncomment out the next line to test your solution
+// const containsSeven = (number) => {
+//   let num = number.toString()
+//    return num.includes(7) ? true : false
+// }
 // runQ2Tests()
 
 // Question Three:
@@ -19,6 +26,14 @@ let assert = require('assert')
 // Write a function called capitalizeTheAs the capitalizes all of the lowercase "a"s in a string leaving all other characters the same
 
 // Uncomment out the next line to test your solution
+const capitalizeTheAs = (str) => {
+  let cap = ""
+  for(let i = 0; i < str.length; i++) {
+    if(str[i] === "a") {
+      
+    }
+  }
+}
 // runQ3Tests()
 
 // Question Four:

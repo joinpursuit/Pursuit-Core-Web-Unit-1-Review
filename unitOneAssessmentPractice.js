@@ -115,7 +115,17 @@ runQ8Tests()
 
 // Question Nine:
 // Write a function called getSmallestClassObject that takes in an array of Classroom objects (described below) and returns the object with the fewest students
-
+  const fewestStudents = (arr) => {
+    let num = Infinity
+    let index = 0
+    for (let i = 0; i < arr.length; i++){
+      if (arr[i]["numberOfStudents"] < num) {
+        num = arr[i]["numberOfStudents"]
+        index = i
+      }
+    }
+    return arr[index]
+  }
 // Sample input:
 // [{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]
 
@@ -123,7 +133,7 @@ runQ8Tests()
 // {teacher: "Professor McGonagall", numberOfStudents: 20}
 
 // Uncomment out the next line to test your solution
-// runQ9Tests()
+runQ9Tests()
 
 
 

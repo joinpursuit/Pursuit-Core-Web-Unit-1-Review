@@ -199,12 +199,21 @@ runQ13Tests()
 
 // Question Fourteen:
 // Write a function called getAllAdults that takes in an array of Person objects and returns an array with only Person objects with an age of at least 18
-// runQ14Tests()
+
+ const getAllAdults = (objArr) => {
+  return objArr.filter(el =>
+    el.isALegalAdult())
+  }
+
+
+runQ14Tests()
 
 // Question Fifteen:
 // Write a function called getAllNames that takes in an array of Person objects and returns a string with all of the names joined together with a ","
-
-// runQ15Tests()
+const getAllNames = (personObj) =>{
+  return personObj.map(el =>el.name).join(",")
+}
+runQ15Tests()
 // The code below is used to test your solutions.  Feel free to look over it, but do not change any of it.
 function TestCase(input, output) {
   this.input = input

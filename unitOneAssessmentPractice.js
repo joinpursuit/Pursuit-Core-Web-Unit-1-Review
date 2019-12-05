@@ -86,14 +86,27 @@ const average = (arr) => {
 
 
 // Uncomment out the next line to test your solution
-runQ5Tests()
+// runQ5Tests()
 
 // Question Six:
 // Write a function called mode that returns the most frequently occurring number in an array
 // HINT: Use an object where the keys are the numbers, and the values are how many times they appear in the array.
 
+const mode = (arr) => {
+  let output = {}
+  arr.forEach((el) => {
+    if(output[el]) {
+      output[el] += 1
+    } else {
+      output[el] = 1
+    }
+  })
+  return output
+}
+// console.log(mode(["apple", "apple", "orange", "orange"]))
+
 // Uncomment out the next line to test your solution
-// runQ6Tests()
+runQ6Tests()
 
 // Question Seven: (BONUS)
 // Write a function called median that returns the most median number in an array

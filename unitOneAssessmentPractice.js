@@ -52,9 +52,13 @@ runQ4Tests()
 
 // Question Five:
 // Write a function called average that returns the average of an array
-
+  const average = (arr) => {
+    let sum = 0
+    arr.forEach(el => sum += el)
+    return sum / arr.length
+  }
 // Uncomment out the next line to test your solution
-// runQ5Tests()
+runQ5Tests()
 
 // Question Six:
 // Write a function called mode that returns the most frequently occurring number in an array

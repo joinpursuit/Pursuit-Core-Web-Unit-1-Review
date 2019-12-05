@@ -12,16 +12,29 @@ runQ1Tests()
 // Question Two:
 
 // Write a function called containsSeven that returns whether or not a number has an sevens in it.
-
+  const containsSeven = (num) => {
+    num = num.toString()
+    return num.includes(7)
+  }
 // Uncomment out the next line to test your solution
-// runQ2Tests()
+runQ2Tests()
 
 // Question Three:
 
 // Write a function called capitalizeTheAs the capitalizes all of the lowercase "a"s in a string leaving all other characters the same
-
+  const capitalizeTheAs = (str) => {
+    newStr =""
+    for (char of str){
+      if (char === "a") {
+        newStr += char.toUpperCase()
+      } else {
+        newStr += char
+      }
+    }
+    return newStr
+  }
 // Uncomment out the next line to test your solution
-// runQ3Tests()
+runQ3Tests()
 
 // Question Four:
 // Write a function called largest that returns the largest value in an array

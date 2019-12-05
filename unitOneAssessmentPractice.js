@@ -38,9 +38,17 @@ runQ3Tests()
 
 // Question Four:
 // Write a function called largest that returns the largest value in an array
-
+  const largest = (arr) => {
+    let num = -Infinity
+    arr.forEach((el) => {
+      if (el > num) {
+        num = el
+      }
+    })
+    return num
+  }
 // Uncomment out the next line to test your solution
-// runQ4Tests()
+runQ4Tests()
 
 // Question Five:
 // Write a function called average that returns the average of an array

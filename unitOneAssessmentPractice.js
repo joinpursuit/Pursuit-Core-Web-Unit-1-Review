@@ -3,9 +3,8 @@ let assert = require('assert')
 // Question One:
 
 // Write a function called double that doubles a number
-const double =(num)=>{
-  return num*2;
-}
+const double = num => num*2
+
 
 // Uncomment out the next line to test your solution
 runQ1Tests()
@@ -13,7 +12,7 @@ runQ1Tests()
 // Question Two:
 
 // Write a function called containsSeven that returns whether or not a number has an sevens in it.
-const containsSeven = (num) =>{
+const containsSeven = num =>{
   let number = String(num);
   if(number.includes("7")){
     return true;
@@ -29,16 +28,12 @@ runQ2Tests()
 // Question Three:
 
 // Write a function called capitalizeTheAs the capitalizes all of the lowercase "a"s in a string leaving all other characters the same
-const capitalizeTheAs = (str) =>{
- let newStr = "";
- for (let i=0;i<str.length;i++){
-   if(str[i]==="a"){
-     newStr+=("A")
-   }else{
-     newStr+=(str[i])
-   }
- }
-  return newStr
+const capitalizeTheAs = str =>{
+    let newStr = "";
+    for (let i = 0; i< str.length; i++){
+        str[i] === "a" ? newStr += "A" : newStr += str[i]
+    }
+    return newStr
 }
 
 // Uncomment out the next line to test your solution
@@ -46,14 +41,14 @@ runQ3Tests()
 
 // Question Four:
 // Write a function called largest that returns the largest value in an array
-const largest =(arr) =>{
-  let lag = arr[0];
-  for (let i=0;i<arr.length;i++){
-    if(lag<arr[i]){
-      lag=arr[i]
+const largest = arr =>{
+  let greatest = arr[0];
+  for (let i = 0; i < arr.length; i++){
+    if(greatest < arr[i]){
+      greatest = arr[i];
     }
   }
-  return lag
+  return greatest
 }
 
 // Uncomment out the next line to test your solution
@@ -63,12 +58,12 @@ runQ4Tests()
 // Question Five:
 // Write a function called average that returns the average of an array
 
-const average =(arr)=>{
-  let sum=0;
+const average = arr =>{
+  let sum = 0;
   for(let el in arr){
-    sum+=arr[el]
+    sum += arr[el];
   }
-  return (sum/(arr.length))
+  return sum/arr.length;
 }
 // Uncomment out the next line to test your solution
 runQ5Tests()
@@ -87,15 +82,15 @@ const arrOcc = (arr) => {
 
 const mode =(arr)=>{
   let obj =  arrOcc(arr);
-  let number;
-  let larg = -Infinity;
+  let mode;
+  let biggest = -Infinity;
   for(let key in obj){
-    if(obj[key] > larg){
-      larg = obj[key];
-      number = Number(key);
+    if(obj[key] > biggest){
+      biggest = obj[key];
+      mode = Number(key);
     }
   }
-  return number;
+  return mode;
 }
 // Uncomment out the next line to test your solution
 runQ6Tests()
@@ -157,7 +152,6 @@ const fewestStudents = arr => {
 
 // Uncomment out the next line to test your solution
 runQ9Tests()
-
 
 
 
@@ -230,9 +224,15 @@ runQ14Tests()
 
 // Question Fifteen:
 
-// Write a function called getAllNames that takes in an array of Person objects and returns a string with all of the names joined together with a ","
+// Write a function called getAllNames that takes in an array of Person objects and returns a string with all of the names joined together with a ", "
+const getAllNames = arr => {
+  return arr.reduce((acc, person) => {
+    acc.push(person.name);
+    return acc;
+  }, []).join(",")
+}
 
-// runQ15Tests()
+runQ15Tests()
 
 // The code below is used to test your solutions.  Feel free to look over it, but do not change any of it.
 

@@ -96,7 +96,13 @@ runQ6Tests()
 
 // Question Eight:
 // Write a function called addAllStudents that takes in an array of Classroom objects (described below) and returns the total number of students
-
+  const addAllStudents = (arr) => {
+    let sum = 0
+    arr.forEach((el) => {
+      sum += el["numberOfStudents"] 
+    })
+    return sum
+  }
 // Sample input:
 // [{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]
 
@@ -104,7 +110,7 @@ runQ6Tests()
 // 80
 
 // Uncomment out the next line to test your solution
-// runQ8Tests()
+runQ8Tests()
 
 
 // Question Nine:

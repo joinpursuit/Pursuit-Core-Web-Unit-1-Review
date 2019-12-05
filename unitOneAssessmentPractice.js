@@ -109,7 +109,14 @@ runQ7Tests()
 
 // Uncomment out the next line to test your solution
 
-// runQ8Tests()
+const addAllStudents = (arr) => {
+  let tot = 0
+arr.forEach((el) => {
+  tot += el.numberOfStudents
+})
+  return tot;
+}
+runQ8Tests()
 
 // Question Nine:
 // Write a function called getSmallestClassObject that takes in an array of Classroom objects (described below) and returns the object with the fewest students
@@ -119,7 +126,16 @@ runQ7Tests()
 // {teacher: "Professor McGonagall", numberOfStudents: 20}
 
 // Uncomment out the next line to test your solution
-// runQ9Tests()
+const fewestStudents = (arr) => {
+  let fewerStudents = arr[0];
+  arr.forEach((el) => {
+    if(el.numberOfStudents < fewerStudents.numberOfStudents){
+          fewerStudents = el
+    }
+  })
+  return fewerStudents
+}
+runQ9Tests()
 
 // Question Ten:
 // Write a function called doubleAllElements that doubles each number in an array
@@ -127,7 +143,13 @@ runQ7Tests()
 // Your output should be in the same order as the input
 
 // Uncomment out the next line to test your solution
-// runQ10Tests()
+const doubleAllElements = (num) => {
+  let double = num.map((num) =>{
+    return num * 2
+  })
+  return double
+}
+runQ10Tests()
 
 // Question Eleven:
 // Write a function called onlyLongStrings that removes all strings with 3 or fewer characters
@@ -135,7 +157,13 @@ runQ7Tests()
 // Your output should be in the same order as the input
 
 // Uncomment out the next line to test your solution
-// runQ11Tests()
+const onlyLongStrings = (string) => {
+  let strLength = string.filter((string)=> {
+    return string.length > 3
+  })
+return strLength
+}
+runQ11Tests()
 
 // Question Twelve:
 // Write a function called containsOnlyNumbers that returns whether or not an array contains only numbers
@@ -143,13 +171,31 @@ runQ7Tests()
 // Hint: the isNaN() function will tell you whether something is not a number
 
 // Uncomment out the next line to test your solution
-// runQ12Tests()
+const containsOnlyNumbers = (arr) => {
+  return arr.every(elem => {
+    !isNaN(elem)
+  })
+  }
+runQ12Tests()
 
 // Question Thirteen:
 // Make a class called Person that has two properties set by the constructor named age and name
 // Give it a method called isALegalAdult which returns true if the age is at least 18
 
-// runQ13Tests()
+class Person {
+  constructor(age, name){
+    this.name = name;
+    this.age = age;
+  }
+  isALegalAdult(){
+    if(this.age >= 18){
+      return true
+    }else{
+      return false
+    }
+  }
+}
+runQ13Tests()
 
 // Question Fourteen:
 // Write a function called getAllAdults that takes in an array of Person objects and returns an array with only Person objects with an age of at least 18

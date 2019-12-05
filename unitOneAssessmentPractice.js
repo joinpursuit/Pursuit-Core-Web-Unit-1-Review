@@ -181,14 +181,16 @@ runQ13Tests()
 
 // Write a function called getAllAdults that takes in an array of Person objects and returns an array with only Person objects with an age of at least 18
 
-// const getAllAdults = (arr) => {
-//   return arr.filter(el => {
-//     if(el.age >= 18) {
-//       return el
-//     }
-//   })
-// }
-// runQ14Tests()
+const getAllAdults = (arr) => {
+  let newArr = []
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i].age >= 18) {
+    newArr.push(arr[i])
+    }
+  }
+  return newArr
+}
+runQ14Tests()
 
 // Question Fifteen:
 

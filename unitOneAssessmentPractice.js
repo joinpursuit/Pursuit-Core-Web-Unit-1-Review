@@ -168,28 +168,50 @@ runQ11Tests()
 // Write a function called containsOnlyNumbers that returns whether or not an array contains only numbers
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Hint: the isNaN() function will tell you whether something is not a number
-
+  const containsOnlyNumbers = (arr) => {
+    return arr.every((el) => !isNaN(el))
+  }
 // Uncomment out the next line to test your solution
-// runQ12Tests()
+runQ12Tests()
 
 // Question Thirteen:
 
 // Make a class called Person that has two properties set by the constructor named age and name
 // Give it a method called isALegalAdult which returns true if the age is at least 18
+  class Person {
+    constructor(age,name){
+      this.age = age
+      this.name = name
+    }
+    isALegalAdult() {
+     return this.age >= 18 ? true : false
+    }
+  }
 
-// runQ13Tests()
+runQ13Tests()
 
 // Question Fourteen:
 
 // Write a function called getAllAdults that takes in an array of Person objects and returns an array with only Person objects with an age of at least 18
-
-// runQ14Tests()
+  const getAllAdults = (arr) => {
+    return arr.filter((el) => {
+      return el["age"] >= 18
+    })
+  }
+runQ14Tests()
 
 // Question Fifteen:
 
 // Write a function called getAllNames that takes in an array of Person objects and returns a string with all of the names joined together with a ","
+  const getAllNames = (arr) => {
+    let str =""
+    arr.forEach((el) => {
+      str += (el.name + ",")
+    })
+    return str
+  }
 
-// runQ15Tests()
+runQ15Tests()
 
 // The code below is used to test your solutions.  Feel free to look over it, but do not change any of it.
 

@@ -143,9 +143,13 @@ runQ9Tests()
 // Write a function called doubleAllElements that doubles each number in an array
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
+  const doubleAllElements = (arr) => {
+    return arr.map((el) => el * 2)
+    
+  }
 
 // Uncomment out the next line to test your solution
-// runQ10Tests()
+runQ10Tests()
 
 
 // Question Eleven:

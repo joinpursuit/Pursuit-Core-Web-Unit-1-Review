@@ -73,11 +73,32 @@ const average = (arr) => {
 }
 
 // Uncomment out the next line to test your solution
-runQ5Tests()
+// runQ5Tests()
 
 // Question Six:
 // Write a function called mode that returns the most frequently occurring number in an array
 // HINT: Use an object where the keys are the numbers, and the values are how many times they appear in the array.
+const mode = (arr) => {
+  let results = {};
+  let most = arr[0]
+  arr.forEach(num => {
+    
+  });
+}
+
+// const mode = (arr) => {
+//   let results = {};
+//   arr.forEach((num,i) => {
+//     if (!results[num[i]]) {
+//         results[num[i]] += num[i]
+//     } else {
+//       console.log(++results[num[i]])
+//     }
+//   })
+//   return results;
+// }
+// let arry = [1, 2, 3, 4, 4, 4, 5, 2]
+// mode(arry)
 
 // Uncomment out the next line to test your solution
 // runQ6Tests()
@@ -99,7 +120,11 @@ runQ5Tests()
 // Sample output:
 // 80
 
-
+const addAllStudents = (arr) => {
+  return arr.reduce((el, acc) => {
+    return acc + el.numberOfStudents;
+  }, 0)
+}
 
 // Uncomment out the next line to test your solution
 // runQ8Tests()
@@ -114,6 +139,10 @@ runQ5Tests()
 // Sample output:
 // {teacher: "Professor McGonagall", numberOfStudents: 20}
 
+const getSmallestClassObject = (arr) => {
+  
+}
+
 // Uncomment out the next line to test your solution
 // runQ9Tests()
 
@@ -126,8 +155,14 @@ runQ5Tests()
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
 
+const doubleAllElements = (array) => {
+  return array.map(el => {
+    return el * 2
+  })
+}
+
 // Uncomment out the next line to test your solution
-// runQ10Tests()
+runQ10Tests()
 
 
 // Question Eleven:
@@ -135,6 +170,14 @@ runQ5Tests()
 // Write a function called onlyLongStrings that removes all strings with 3 or fewer characters
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
+
+const onlyLongStrings = (arr) => {
+  return arr.filter(str => {
+    if (str.length > 3) {
+      return str
+    }
+  })
+}
 
 // Uncomment out the next line to test your solution
 // runQ11Tests()
@@ -153,6 +196,8 @@ runQ5Tests()
 // Make a class called Person that has two properties set by the constructor named age and name
 // Give it a method called isALegalAdult which returns true if the age is at least 18
 
+
+
 // runQ13Tests()
 
 // Question Fourteen:
@@ -164,6 +209,12 @@ runQ5Tests()
 // Question Fifteen:
 
 // Write a function called getAllNames that takes in an array of Person objects and returns a string with all of the names joined together with a ","
+
+const getAllNames = (array) => {
+  
+console.log(array[i])
+}
+
 
 // runQ15Tests()
 

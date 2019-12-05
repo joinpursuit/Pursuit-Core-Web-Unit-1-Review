@@ -4,38 +4,95 @@ let assert = require('assert')
 
 // Write a function called double that doubles a number
 
+const double = (num) =>{
+  return num*2
+}
+
 // Uncomment out the next line to test your solution
-// runQ1Tests()
+runQ1Tests()
 
 // Question Two:
 
 // Write a function called containsSeven that returns whether or not a number has an sevens in it.
 
+const containsSeven = (num) =>{
+  return num.toString().includes("7")
+}
 // Uncomment out the next line to test your solution
-// runQ2Tests()
+runQ2Tests()
 
 // Question Three:
 
 // Write a function called capitalizeTheAs the capitalizes all of the lowercase "a"s in a string leaving all other characters the same
 
+const capitalizeTheAs = (string) =>{
+  let newString= ""
+  for( let i=0; i < string.length; i++){
+    if(string[i] === "a") {
+      newString += string[i].toUpperCase()
+    } else{
+      newString += string[i]
+    }
+  }
+  return newString
+}
+
 // Uncomment out the next line to test your solution
-// runQ3Tests()
+runQ3Tests()
 
 // Question Four:
 // Write a function called largest that returns the largest value in an array
 
+const largest = (arr) =>{
+  let largestNum = -Infinity
+  for(let i=0; i < arr.length; i++){
+    if(largestNum < arr[i]){
+      largestNum = arr[i]
+    }
+  }
+  return largestNum
+}
+
 // Uncomment out the next line to test your solution
-// runQ4Tests()
+runQ4Tests()
 
 // Question Five:
 // Write a function called average that returns the average of an array
 
+const average = (arr) =>{
+  let sum = 0
+  let average = 0
+  arr.forEach(e =>{
+    sum += e
+  })
+  return average = sum/arr.length
+}
+
 // Uncomment out the next line to test your solution
-// runQ5Tests()
+runQ5Tests()
 
 // Question Six:
 // Write a function called mode that returns the most frequently occurring number in an array
 // HINT: Use an object where the keys are the numbers, and the values are how many times they appear in the array.
+
+const mode = (arr) =>{
+  let object = {}
+  let largest = -Infinity
+  let largestKey = ""
+  for(let i = 0; i < arr.length; i++) {
+    if(object[arr[i]]){
+      object[arr[i]] += 1
+    } else {
+      object[arr[i]] = 1
+    }
+  } 
+  for(let key in object){
+    if(largest < object[key].values)
+      largest = object[key].values
+      largestKey = object[key]
+  }
+  return largestKey
+}
 
 // Uncomment out the next line to test your solution
 // runQ6Tests()

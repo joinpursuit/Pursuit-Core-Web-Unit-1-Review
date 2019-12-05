@@ -73,7 +73,7 @@ const average = (arr) =>{
 const mode = (arr) => {
   let obj = {}
   let largest = 1
-  let results = 0
+  let results = ""
   arr.forEach(el => {
     if(obj[el] >= 1){
       obj[el]++
@@ -85,10 +85,10 @@ const mode = (arr) => {
     for(el in obj){
     if(obj[el] > largest){
         largest = obj[el]
-        results = Number(el)
+        results = el
       } 
     }
-    return results
+    return Number(results)
 }
 
 // Uncomment out the next line to test your solution

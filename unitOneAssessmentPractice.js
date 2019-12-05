@@ -16,28 +16,23 @@ runQ1Tests()
 // Write a function called containsSeven that returns whether or not a number has an sevens in it.
 
 const containsSeven = (num) => {
-    let num1 = num.toString(); 
-    for(let i = 0; i < num1.length; i++){
-      if(num1[i] !== 7){
-        return false
-      } else {
-        return true
-      }
-    }
-   
-}
-
+    let str = num.toString()
+    let seven = "7"
+    if(str.includes(seven)){
+      return true
+    } else {
+      return false
+    }
+  }
+  
 
 
 // Uncomment out the next line to test your solution
-// runQ2Tests()
+runQ2Tests()
 
 // Question Three:
 
 // Write a function called capitalizeTheAs the capitalizes all of the lowercase "a"s in a string leaving all other characters the same
-
-// Uncomment out the next line to test your solution
-runQ3Tests()
 
 const capitalizeTheAs = str =>{
   let newStr = '';
@@ -52,6 +47,10 @@ const capitalizeTheAs = str =>{
   }
   return newStr
   }
+  
+// Uncomment out the next line to test your solution
+runQ3Tests()
+
 
 
 // Question Four:

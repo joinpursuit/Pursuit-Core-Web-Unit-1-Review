@@ -8,7 +8,7 @@ const double =(num)=>{
 }
 
 // Uncomment out the next line to test your solution
-runQ1Tests()
+// runQ1Tests()
 
 // Question Two:
 
@@ -24,7 +24,7 @@ const containsSeven = (num) =>{
 
 
 // Uncomment out the next line to test your solution
-runQ2Tests()
+// runQ2Tests()
 
 // Question Three:
 
@@ -42,7 +42,7 @@ const capitalizeTheAs = (str) =>{
 }
 
 // Uncomment out the next line to test your solution
-runQ3Tests()
+// runQ3Tests()
 
 // Question Four:
 // Write a function called largest that returns the largest value in an array
@@ -57,7 +57,7 @@ const largest =(arr) =>{
 }
 
 // Uncomment out the next line to test your solution
-runQ4Tests()
+// runQ4Tests()
 
 
 // Question Five:
@@ -71,7 +71,7 @@ const average =(arr)=>{
   return (sum/(arr.length))
 }
 // Uncomment out the next line to test your solution
-runQ5Tests()
+// runQ5Tests()
 
 // Question Six:
 // Write a function called mode that returns the most frequently occurring number in an array
@@ -108,7 +108,7 @@ const mode =(arr)=>{
   return number;
 }
 // Uncomment out the next line to test your solution
-runQ6Tests()
+// runQ6Tests()
 
 // Question Seven: (BONUS)
 // Write a function called median that returns the most median number in an array
@@ -124,7 +124,7 @@ runQ6Tests()
 
 const median = (arr) => {
   arr.sort(function(a,b){return a-b});
-  console.log(arr)
+  // console.log(arr)
   if(arr.length % 2 === 1){
     return arr[Math.floor(arr.length/2)];
   } else {
@@ -132,11 +132,17 @@ const median = (arr) => {
   }
 }
 // Uncomment out the next line to test your solution
-runQ7Tests()
+// runQ7Tests()
 
 // Question Eight:
 // Write a function called addAllStudents that takes in an array of Classroom objects (described below) and returns the total number of students
-
+const addAllStudents = (obj)=>{
+  let total = 0;
+  obj.forEach((el)=>{
+    total+=el.numberOfStudents
+  })
+  return total
+}
 // Sample input:
 // [{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]
 
@@ -149,7 +155,19 @@ runQ7Tests()
 
 // Question Nine:
 // Write a function called getSmallestClassObject that takes in an array of Classroom objects (described below) and returns the object with the fewest students
-
+const fewestStudents = obj =>{
+  let smaller = Infinity;
+  let lowClass = {};
+  obj.forEach((el)=>{
+    // console.log(el.numberOfStudents)
+    if(smaller>el.numberOfStudents){
+      smaller=el.numberOfStudents
+      lowClass= el
+      console.log(smaller)
+    }
+  })
+  return lowClass
+}
 // Sample input:
 // [{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]
 

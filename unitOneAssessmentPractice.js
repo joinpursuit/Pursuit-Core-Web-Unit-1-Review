@@ -157,9 +157,11 @@ runQ10Tests()
 // Write a function called onlyLongStrings that removes all strings with 3 or fewer characters
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
-
+  const onlyLongStrings = (arr) => {
+    return arr.filter((el) => el.length > 3)
+  }
 // Uncomment out the next line to test your solution
-// runQ11Tests()
+runQ11Tests()
 
 // Question Twelve:
 

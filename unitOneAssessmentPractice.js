@@ -104,10 +104,16 @@ runQ6Tests()
 // Question Eight:
 // Write a function called addAllStudents that takes in an array of Classroom objects (described below) and returns the total number of students
 
-
+const addAllStudents = arr => {
+  let sum = 0
+  for (let teacher of arr){
+      sum += teacher["numberOfStudents"]
+  }
+  return sum
+}
 
 // Sample input:
-// [{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]
+//[{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]
 
 // Sample output:
 // 80
@@ -119,6 +125,18 @@ runQ8Tests()
 // Question Nine:
 // Write a function called getSmallestClassObject that takes in an array of Classroom objects (described below) and returns the object with the fewest students
 
+const fewestStudents = arr => {
+  let min = Infinity
+  let minClass = {}
+  for (let object of arr) {
+    if (object["numberOfStudents"] < min){
+      min = object["numberOfStudents"]
+      minClass = object
+    }
+   }
+   return minClass
+}
+
 // Sample input:
 // [{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]
 
@@ -126,7 +144,7 @@ runQ8Tests()
 // {teacher: "Professor McGonagall", numberOfStudents: 20}
 
 // Uncomment out the next line to test your solution
-// runQ9Tests()
+runQ9Tests()
 
 
 
@@ -137,9 +155,10 @@ runQ8Tests()
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
 
-// Uncomment out the next line to test your solution
-// runQ10Tests()
+const doubleAllElements = arr => arr.map(e => e * 2)
 
+// Uncomment out the next line to test your solution
+runQ10Tests()
 
 // Question Eleven:
 
@@ -147,8 +166,12 @@ runQ8Tests()
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
 
+const onlyLongStrings = arr => {
+    return arr.filter( e => e.length >= 3)
+}
+
 // Uncomment out the next line to test your solution
-// runQ11Tests()
+runQ11Tests()
 
 // Question Twelve:
 
@@ -156,27 +179,55 @@ runQ8Tests()
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Hint: the isNaN() function will tell you whether something is not a number
 
+const containsOnlyNumbers = arr => {
+  let ar = arr.every(e => !isNaN(e))
+  return ar
+}
+
 // Uncomment out the next line to test your solution
-// runQ12Tests()
+runQ12Tests()
 
 // Question Thirteen:
 
 // Make a class called Person that has two properties set by the constructor named age and name
 // Give it a method called isALegalAdult which returns true if the age is at least 18
 
-// runQ13Tests()
+class Person {
+  constructor (age, name){
+    this.age = age
+    this.name = name
+  }
+  isALegalAdult() {
+    if (this.age >= 18){
+      return true
+    } else 
+    return false
+  }
+}
+
+runQ13Tests()
 
 // Question Fourteen:
 
 // Write a function called getAllAdults that takes in an array of Person objects and returns an array with only Person objects with an age of at least 18
 
-// runQ14Tests()
+const getAllAdults = arr => arr.filter(person => person["age"] >= 18)
+
+runQ14Tests()
 
 // Question Fifteen:
 
 // Write a function called getAllNames that takes in an array of Person objects and returns a string with all of the names joined together with a ","
 
-// runQ15Tests()
+const getAllNames = arr => {
+  let array = []
+  for (let key of arr){
+    array.push(key["name"])
+  }
+  return array.join(",")
+}
+
+runQ15Tests()
 
 // The code below is used to test your solutions.  Feel free to look over it, but do not change any of it.
 

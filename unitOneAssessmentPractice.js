@@ -79,21 +79,11 @@ runQ5Tests()
 const arrOcc = (arr) => {
   let obj = {};
   arr.forEach((el) => {
-    if(obj[el]){
-      obj[el]++;
-    } else {
-      obj[el] = 1;
-    }
+    obj[el] ? obj[el]++ : obj[el] = 1;
   })
   return obj;
 }
 
-// const counter = (arr) => {
-//   return arr.reduce((acc, el) => {
-//     acc[el] ? acc[el]++ : acc[el] = 1;
-//     return acc
-//   }, {})
-// }
 
 const mode =(arr)=>{
   let obj =  arrOcc(arr);
@@ -115,27 +105,26 @@ runQ6Tests()
 // HINT: You'll need to sort the array first
 // This one's also a bit tricky, feel free to skip it and come back to it.
 
-// const sortArray = (arr) => {
-
-//   return arr.reduce((acc,el) => {
-    
-//   }, []);
-// }
-
 const median = (arr) => {
   arr.sort(function(a,b){return a-b});
-  console.log(arr)
   if(arr.length % 2 === 1){
     return arr[Math.floor(arr.length/2)];
   } else {
     return (arr[Math.floor(arr.length / 2 - 1)] + arr[Math.floor(arr.length/2)])/ 2;
   }
 }
+
 // Uncomment out the next line to test your solution
 runQ7Tests()
 
 // Question Eight:
 // Write a function called addAllStudents that takes in an array of Classroom objects (described below) and returns the total number of students
+const addAllStudents = arr => {
+  return arr.reduce((acc,classroom) => {
+    acc += classroom["numberOfStudents"];
+    return acc;
+  }, 0)
+}
 
 // Sample input:
 // [{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]
@@ -144,12 +133,22 @@ runQ7Tests()
 // 80
 
 // Uncomment out the next line to test your solution
-// runQ8Tests()
+runQ8Tests()
 
 
 // Question Nine:
 // Write a function called getSmallestClassObject that takes in an array of Classroom objects (described below) and returns the object with the fewest students
-
+const fewestStudents = arr => {
+  let obj;
+  let smallest = Infinity;
+  arr.forEach((classroom) => {
+    if(classroom["numberOfStudents"] < smallest){
+      smallest = classroom["numberOfStudents"];
+      obj = classroom;
+    }
+  })
+  return obj;
+}
 // Sample input:
 // [{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]
 
@@ -157,7 +156,7 @@ runQ7Tests()
 // {teacher: "Professor McGonagall", numberOfStudents: 20}
 
 // Uncomment out the next line to test your solution
-// runQ9Tests()
+runQ9Tests()
 
 
 
@@ -167,9 +166,12 @@ runQ7Tests()
 // Write a function called doubleAllElements that doubles each number in an array
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
+const doubleAllElements = arr => {
+  return arr.map((num) => num * 2);
+}
 
 // Uncomment out the next line to test your solution
-// runQ10Tests()
+runQ10Tests()
 
 
 // Question Eleven:
@@ -177,31 +179,54 @@ runQ7Tests()
 // Write a function called onlyLongStrings that removes all strings with 3 or fewer characters
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
-
+const onlyLongStrings = arr => {
+  return arr.filter((string) => string.length > 3)
+}
 // Uncomment out the next line to test your solution
-// runQ11Tests()
+runQ11Tests()
 
 // Question Twelve:
 
 // Write a function called containsOnlyNumbers that returns whether or not an array contains only numbers
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Hint: the isNaN() function will tell you whether something is not a number
-
+const containsOnlyNumbers = arr => {
+  return arr.every((el) => Number(el));
+}
 // Uncomment out the next line to test your solution
-// runQ12Tests()
+runQ12Tests()
 
 // Question Thirteen:
 
 // Make a class called Person that has two properties set by the constructor named age and name
 // Give it a method called isALegalAdult which returns true if the age is at least 18
+class Person {
+  constructor(age, name){
+    Object.assign(this, {age,name});
+  }
 
-// runQ13Tests()
+  isALegalAdult(){
+    if(this.age >= 18){
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+runQ13Tests()
 
 // Question Fourteen:
 
 // Write a function called getAllAdults that takes in an array of Person objects and returns an array with only Person objects with an age of at least 18
-
-// runQ14Tests()
+const getAllAdults = arr => {
+  return arr.reduce((acc,person) => {
+    if(person.isALegalAdult()){
+      acc.push(person)
+    }
+    return acc;
+  },[]);
+}
+runQ14Tests()
 
 // Question Fifteen:
 

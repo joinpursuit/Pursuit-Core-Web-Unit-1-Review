@@ -80,7 +80,14 @@ const average = arr => {
 
 const mode = (arr) => {
   let obj ={}
-}
+  arr.forEach(el=>{
+    if(obj.el === undefined){
+      obj.el = 1
+    } else {
+      obj.el++
+    }
+  })
+ }
 
 // Uncomment out the next line to test your solution
 // runQ6Tests()
@@ -102,6 +109,14 @@ const mode = (arr) => {
 // Sample output:
 // 80
 
+ const addAllStudents = (arr) => {
+   let total = 0
+   arr.forEach(el=>{
+     total+=el.numberOfStudents
+   })
+   return total
+ }
+
 // Uncomment out the next line to test your solution
 // runQ8Tests()
 
@@ -115,8 +130,18 @@ const mode = (arr) => {
 // Sample output:
 // {teacher: "Professor McGonagall", numberOfStudents: 20}
 
+const fewestStudents = arr => {
+  let smallest = arr[0]
+  arr.forEach(el=> {
+    if(el.age < smallest) {
+      smallest = el.age
+    }
+  })
+  return smallest
+}
+
 // Uncomment out the next line to test your solution
-// runQ9Tests()
+runQ9Tests()
 
 
 
@@ -127,8 +152,11 @@ const mode = (arr) => {
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
 
+const doubleAllElements = arr => arr.map(el=> el* 2)
+
 // Uncomment out the next line to test your solution
 // runQ10Tests()
+
 
 
 // Question Eleven:
@@ -136,6 +164,8 @@ const mode = (arr) => {
 // Write a function called onlyLongStrings that removes all strings with 3 or fewer characters
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
+
+const onlyLongStrings = arr => arr.filter(el=> el.length > 3)
 
 // Uncomment out the next line to test your solution
 // runQ11Tests()
@@ -146,6 +176,8 @@ const mode = (arr) => {
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Hint: the isNaN() function will tell you whether something is not a number
 
+const containsOnlyNumbers = arr => arr.every(el=> !isNaN(el))
+
 // Uncomment out the next line to test your solution
 // runQ12Tests()
 
@@ -154,17 +186,37 @@ const mode = (arr) => {
 // Make a class called Person that has two properties set by the constructor named age and name
 // Give it a method called isALegalAdult which returns true if the age is at least 18
 
+class Person {
+  constructor(age, name){
+    this.age = age;
+    this.name = name;
+  }
+  isALegalAdult(){
+    return this.age >= 18
+  }
+}
+
 // runQ13Tests()
 
 // Question Fourteen:
 
 // Write a function called getAllAdults that takes in an array of Person objects and returns an array with only Person objects with an age of at least 18
 
+const getAllAdults = arr => arr.filter(el=> el.age >= 18)
+
 // runQ14Tests()
 
 // Question Fifteen:
 
 // Write a function called getAllNames that takes in an array of Person objects and returns a string with all of the names joined together with a ","
+
+const getAllNames = arr => {
+  let name = [];
+  arr.forEach(el=> {
+    name.push(el.name)
+  })
+  return name.join(',')
+}
 
 // runQ15Tests()
 

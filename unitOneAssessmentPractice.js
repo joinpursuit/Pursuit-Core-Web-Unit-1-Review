@@ -17,16 +17,17 @@ const double = (num) => {
 
 const containsSeven = (num) => {
     let str = num.toString()
-    let seven = "7"
-    if(str.includes(seven)){ 
-      return true
-    } else {
-      return false
-    }
-}
+    return str.includes("7")
+//     let seven = "7"
+//     if(str.includes(seven)){ 
+//       return true
+//     } else {
+//       return false
+//     }
+// }
 
 // Uncomment out the next line to test your solution
-//runQ2Tests()
+runQ2Tests()
 
 // Question Three:
 

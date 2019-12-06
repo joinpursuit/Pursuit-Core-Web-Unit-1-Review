@@ -90,9 +90,18 @@ runQ6Tests()
 // Write a function called median that returns the most median number in an array
 // HINT: You'll need to sort the array first
 // This one's also a bit tricky, feel free to skip it and come back to it.
+  const median = (arr) => {
+    arr.sort((a,b) => a-b)
+    return arr.length % 2 ? arr[Math.floor(arr.length / 2)] : (arr[arr.length / 2] + arr[(arr.length / 2) - 1]) / 2
+    // if (arr.length % 2) {
+    //   return arr[Math.floor(arr.length / 2)]
+    // } else {
+    //   return arr[arr.length / 2] + arr[(arr.length / 2) - 1]
+    // }
+  }
 
 // Uncomment out the next line to test your solution
-// runQ7Tests()
+runQ7Tests()
 
 // Question Eight:
 // Write a function called addAllStudents that takes in an array of Classroom objects (described below) and returns the total number of students

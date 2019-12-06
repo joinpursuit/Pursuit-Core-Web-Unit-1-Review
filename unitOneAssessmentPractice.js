@@ -204,11 +204,11 @@ runQ14Tests()
 
 // Write a function called getAllNames that takes in an array of Person objects and returns a string with all of the names joined together with a ","
   const getAllNames = (arr) => {
-    let str =""
+    let result = []
     arr.forEach((el) => {
-      str += (el.name + ",")
+      result.push(el.name)
     })
-    return str
+    return result.join(",")
   }
 
 runQ15Tests()

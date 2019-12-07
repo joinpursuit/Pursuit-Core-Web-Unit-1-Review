@@ -20,10 +20,9 @@ const double = (num) =>{
 // Uncomment out the next line to test your solution
 const containsSeven = (num) =>{
   let intoString = num+"";
-  let toSplit = intoString.split("");
-  return toSplit.includes("7")
+  return intoString.includes("7")
 }
-//runQ2Tests()
+runQ2Tests()
 
 // Question Three:
 
@@ -92,7 +91,7 @@ const mode = (arr) => {
 }
 
 // Uncomment out the next line to test your solution
-runQ6Tests()
+// runQ6Tests()
 
 // Question Seven: (BONUS)
 // Write a function called median that returns the most median number in an array

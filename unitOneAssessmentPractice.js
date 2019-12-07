@@ -4,41 +4,107 @@ let assert = require('assert')
 
 // Write a function called double that doubles a number
 
+const double = (num) =>{
+  return num * 2
+
+}
+console.log(double(6))
+
+
+
 // Uncomment out the next line to test your solution
-// runQ1Tests()
+runQ1Tests()
 
 // Question Two:
 
 // Write a function called containsSeven that returns whether or not a number has an sevens in it.
 
+const containsSeven = (num) =>{
+  let newStr = num.toString();
+  let outPut = false
+  for(let i = 0; i < newStr.length; i++){
+    if(newStr[i] === "7"){
+      outPut = true
+    }
+  }
+  return outPut
+
+}
+
 // Uncomment out the next line to test your solution
-// runQ2Tests()
+runQ2Tests()
 
 // Question Three:
 
 // Write a function called capitalizeTheAs the capitalizes all of the lowercase "a"s in a string leaving all other characters the same
+const capitalizeTheAs = (str) =>{
+  let newStr = ""
+  for(letter of str){
+    if(letter === "a"){
+      newStr += letter.toUpperCase() 
+    }else{
+      newStr += letter
+    }
 
+  }
+  return newStr
+}
 // Uncomment out the next line to test your solution
-// runQ3Tests()
+runQ3Tests()
 
 // Question Four:
 // Write a function called largest that returns the largest value in an array
+const largest = (arr) =>{
+  let large = -Infinity;
+  arr.forEach(el =>{
+    if(el > large){
+      large = el
+    }
+  })
+  return large
+}
 
 // Uncomment out the next line to test your solution
-// runQ4Tests()
+runQ4Tests()
 
 // Question Five:
 // Write a function called average that returns the average of an array
+const average = (arr) =>{
+  let sum = 0;
+  arr.forEach(el =>{
+    sum += el;
+  })
+  let average = sum/arr.length;
+  return average
+}
 
 // Uncomment out the next line to test your solution
-// runQ5Tests()
+runQ5Tests()
 
 // Question Six:
 // Write a function called mode that returns the most frequently occurring number in an array
 // HINT: Use an object where the keys are the numbers, and the values are how many times they appear in the array.
 
+const mode = (arr) => {
+  let object = {};
+  let most = -Infinity;
+  let mostProp = 0
+  for (let i = 0; i < arr.length; i++) {
+    if(!object[arr[i]]) {
+      object[arr[i]] = 0;
+    }
+      object[arr[i]]++;
+      for(let property in object){
+        if(most < object[property]){
+          most = object[property];
+          mostProp = property
+        }
+      }
+  }
+  return parseInt(mostProp)
+}
 // Uncomment out the next line to test your solution
-// runQ6Tests()
+runQ6Tests()
 
 // Question Seven: (BONUS)
 // Write a function called median that returns the most median number in an array
@@ -51,6 +117,14 @@ let assert = require('assert')
 // Question Eight:
 // Write a function called addAllStudents that takes in an array of Classroom objects (described below) and returns the total number of students
 
+const addAllStudents = (arr) =>{
+  let sum = 0;
+  arr.map(el =>{
+    sum += el.numberOfStudents
+  })
+  return sum
+
+}
 // Sample input:
 // [{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]
 
@@ -58,7 +132,7 @@ let assert = require('assert')
 // 80
 
 // Uncomment out the next line to test your solution
-// runQ8Tests()
+runQ8Tests()
 
 
 // Question Nine:

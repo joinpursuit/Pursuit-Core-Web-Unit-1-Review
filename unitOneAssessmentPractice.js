@@ -3,26 +3,52 @@ let assert = require('assert')
 // Question One:
 
 // Write a function called double that doubles a number
+const double = (num) => {
+  return num * 2
+}
 
 // Uncomment out the next line to test your solution
-// runQ1Tests()
+runQ1Tests()
 
 // Question Two:
 
 // Write a function called containsSeven that returns whether or not a number has an sevens in it.
 
+const containsSeven = (num) => {
+  return num.toString().includes('7');
+}
+
 // Uncomment out the next line to test your solution
-// runQ2Tests()
+runQ2Tests()
 
 // Question Three:
 
 // Write a function called capitalizeTheAs the capitalizes all of the lowercase "a"s in a string leaving all other characters the same
 
+const capitalizeTheAs = (string) => {
+  let newStr = "";
+  for(let i = 0; i < string.length; i++){
+    if(string[i] === "a") {
+      newStr += string[i].toUpperCase()
+    } else {
+      newStr += string[i]
+    }
+  }
+  return newStr
+}
+  
+
 // Uncomment out the next line to test your solution
-// runQ3Tests()
+runQ3Tests()
 
 // Question Four:
 // Write a function called largest that returns the largest value in an array
+
+// const largest = (arr) => {
+//   for(let i = 0; i < Infinity; i++) {
+//     if(arr[i] > )
+//   }
+// }
 
 // Uncomment out the next line to test your solution
 // runQ4Tests()
@@ -44,6 +70,17 @@ let assert = require('assert')
 // Write a function called median that returns the most median number in an array
 // HINT: You'll need to sort the array first
 // This one's also a bit tricky, feel free to skip it and come back to it.
+
+const median = (arr) => {
+  let sorted = arr.sort( (a,b) => a - b);
+  if (sorted.length % 2 === 0) {
+    return sorted[Math.floor((sorted.length - 1) / 2)];
+  } else {
+    
+  }
+}
+
+//??
 
 // Uncomment out the next line to test your solution
 // runQ7Tests()
@@ -82,8 +119,12 @@ let assert = require('assert')
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
 
+const doubleAllElements = (arr) => {
+  return arr.map(ele => ele * 2);
+}
+
 // Uncomment out the next line to test your solution
-// runQ10Tests()
+runQ10Tests()
 
 
 // Question Eleven:
@@ -92,8 +133,12 @@ let assert = require('assert')
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
 
+const onlyLongStrings = (arr) => {
+  return arr.filter(str => str.length > 3);
+}
+
 // Uncomment out the next line to test your solution
-// runQ11Tests()
+runQ11Tests()
 
 // Question Twelve:
 
@@ -101,21 +146,51 @@ let assert = require('assert')
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Hint: the isNaN() function will tell you whether something is not a number
 
+const containsOnlyNumbers = (arr) => {
+  return arr.every(ele => !isNaN(ele));
+}
+
 // Uncomment out the next line to test your solution
-// runQ12Tests()
+runQ12Tests()
 
 // Question Thirteen:
 
 // Make a class called Person that has two properties set by the constructor named age and name
 // Give it a method called isALegalAdult which returns true if the age is at least 18
+ 
 
-// runQ13Tests()
+class Person {
+  constructor(age, name) {
+    this.age = age;
+    this.name = name;
+  }
+  isALegalAdult() {
+    if(this.age >= 18) {
+      return true
+  } else {
+    return false
+  }
+}
+
+}
+
+// keeps returning undefined...
+runQ13Tests()
 
 // Question Fourteen:
 
 // Write a function called getAllAdults that takes in an array of Person objects and returns an array with only Person objects with an age of at least 18
 
-// runQ14Tests()
+const getAllAdults = (arr) => {
+  let newArr = []
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i].age >= 18) {
+    newArr.push(arr[i])
+    }
+  }
+  return newArr
+}
+runQ14Tests()
 
 // Question Fifteen:
 

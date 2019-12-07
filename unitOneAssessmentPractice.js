@@ -104,7 +104,7 @@ const median = arr => {
     return (arr[arr.length-2] + arr[arr.length-1])/2
   } else if (arr.length%2 !== 0){
     return arr[arr.length/2]
-  }
+  }s
 }
 
 // Uncomment out the next line to test your solution

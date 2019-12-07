@@ -4,12 +4,21 @@ let assert = require('assert')
 
 // Write a function called double that doubles a number
 
+const double = (num) => {
+  return num * 2;
+}
+
 // Uncomment out the next line to test your solution
 // runQ1Tests()
 
 // Question Two:
 
 // Write a function called containsSeven that returns whether or not a number has an sevens in it.
+
+const containsSeven = (num) => {
+  num = num + "";
+  return num.includes("7")
+}
 
 // Uncomment out the next line to test your solution
 // runQ2Tests()
@@ -18,11 +27,36 @@ let assert = require('assert')
 
 // Write a function called capitalizeTheAs the capitalizes all of the lowercase "a"s in a string leaving all other characters the same
 
+const capitalizeTheAs = (str) => {
+  let sep = str.split("");
+  for (let i = 0; i < sep.length; i++) {
+    if (sep[i] === "a") {
+      sep[i] = "A";
+    }
+  }
+  let res = sep.join("");
+  return res;
+}
+
 // Uncomment out the next line to test your solution
 // runQ3Tests()
 
 // Question Four:
 // Write a function called largest that returns the largest value in an array
+
+
+
+const largest = (arr) => {
+  let largest = -Infinity;
+  for (let i = 0; i < arr.length; i++) {
+    // console.log(i)
+    if (arr[i] > largest) {
+      largest = arr[i];
+      console.log(arr[i])
+    }
+  }
+  return largest;
+}
 
 // Uncomment out the next line to test your solution
 // runQ4Tests()
@@ -30,12 +64,41 @@ let assert = require('assert')
 // Question Five:
 // Write a function called average that returns the average of an array
 
+const average = (arr) => {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i]
+  }
+  return sum/arr.length
+}
+
 // Uncomment out the next line to test your solution
 // runQ5Tests()
 
 // Question Six:
 // Write a function called mode that returns the most frequently occurring number in an array
 // HINT: Use an object where the keys are the numbers, and the values are how many times they appear in the array.
+const mode = (arr) => {
+  let results = {};
+  let most = arr[0]
+  arr.forEach(num => {
+    
+  });
+}
+
+// const mode = (arr) => {
+//   let results = {};
+//   arr.forEach((num,i) => {
+//     if (!results[num[i]]) {
+//         results[num[i]] += num[i]
+//     } else {
+//       console.log(++results[num[i]])
+//     }
+//   })
+//   return results;
+// }
+// let arry = [1, 2, 3, 4, 4, 4, 5, 2]
+// mode(arry)
 
 // Uncomment out the next line to test your solution
 // runQ6Tests()
@@ -54,11 +117,42 @@ let assert = require('assert')
 // Sample input:
 // [{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]
 
+
+const addAllStudents = (arr) => {
+  let students = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if(arr[i]["numberOfStudents"]) {
+      students.push(arr[i]["numberOfStudents"])
+    }
+  }
+
+  let sum = 0;
+
+  for (let i = 0; i < students.length; i++) {
+    console.log(sum = sum + Number(students[i]))
+  }
+
+    return sum
+  
+  // let results = arr.filter(el => {
+  //   return el['numberOfStudents']
+  // })
+  // let sum = 0;
+  // console.log(results)
+  
+  
+  // for (let i = 0; i < results.length; i++) {
+  //   console.log(results[i] += sum)
+  // }
+  // return sum
+}
+
 // Sample output:
 // 80
 
 // Uncomment out the next line to test your solution
-// runQ8Tests()
+runQ8Tests()
 
 
 // Question Nine:
@@ -69,6 +163,10 @@ let assert = require('assert')
 
 // Sample output:
 // {teacher: "Professor McGonagall", numberOfStudents: 20}
+
+const getSmallestClassObject = (arr) => {
+  
+}
 
 // Uncomment out the next line to test your solution
 // runQ9Tests()
@@ -82,6 +180,12 @@ let assert = require('assert')
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
 
+const doubleAllElements = (array) => {
+  return array.map(el => {
+    return el * 2
+  })
+}
+
 // Uncomment out the next line to test your solution
 // runQ10Tests()
 
@@ -91,6 +195,14 @@ let assert = require('assert')
 // Write a function called onlyLongStrings that removes all strings with 3 or fewer characters
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
+
+const onlyLongStrings = (arr) => {
+  return arr.filter(str => {
+    if (str.length > 3) {
+      return str
+    }
+  })
+}
 
 // Uncomment out the next line to test your solution
 // runQ11Tests()
@@ -109,6 +221,8 @@ let assert = require('assert')
 // Make a class called Person that has two properties set by the constructor named age and name
 // Give it a method called isALegalAdult which returns true if the age is at least 18
 
+
+
 // runQ13Tests()
 
 // Question Fourteen:
@@ -120,6 +234,12 @@ let assert = require('assert')
 // Question Fifteen:
 
 // Write a function called getAllNames that takes in an array of Person objects and returns a string with all of the names joined together with a ","
+
+const getAllNames = (array) => {
+  
+console.log(array[i])
+}
+
 
 // runQ15Tests()
 

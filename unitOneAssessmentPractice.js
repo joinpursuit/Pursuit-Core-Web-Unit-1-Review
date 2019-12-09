@@ -14,11 +14,7 @@ runQ1Tests()
 // Write a function called containsSeven that returns whether or not a number has an sevens in it.
 const containsSeven = num =>{
   let number = String(num);
-  if(number.includes("7")){
-    return true;
-  } else {
-    return false;
-  }
+  return number.includes("7");
 }
 
 
@@ -42,13 +38,13 @@ runQ3Tests()
 // Question Four:
 // Write a function called largest that returns the largest value in an array
 const largest = arr =>{
-  let greatest = arr[0];
+  let greatest = -Infinity
   for (let i = 0; i < arr.length; i++){
     if(greatest < arr[i]){
       greatest = arr[i];
     }
   }
-  return greatest
+  return greatest;
 }
 
 // Uncomment out the next line to test your solution

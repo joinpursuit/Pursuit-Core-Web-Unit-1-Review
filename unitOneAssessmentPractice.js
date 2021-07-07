@@ -1,77 +1,181 @@
 let assert = require('assert')
 
 // Question One:
-
 // Write a function called double that doubles a number
+//
+function double (x){
+   return x * 2
+ }
+ console.log(double(4));
 
 // Uncomment out the next line to test your solution
-// runQ1Tests()
+ runQ1Tests()
 
 // Question Two:
-
 // Write a function called containsSeven that returns whether or not a number has an sevens in it.
+//
+function containsSeven(num) {
+   num = "" + num
+   if(num.includes(7)) {
+     return true
+   }else{
+     return false
+   }
+ }
+ containsSeven(2394072)
 
 // Uncomment out the next line to test your solution
-// runQ2Tests()
+runQ2Tests()
 
 // Question Three:
-
 // Write a function called capitalizeTheAs the capitalizes all of the lowercase "a"s in a string leaving all other characters the same
 
+
+function capitalizeTheAs (str){
+  let arr = str.split("")
+  for(let i = 0; i < arr.length; i++){
+     if(arr[i] === "a"){
+       arr[i] = arr[i].toUpperCase()
+     }
+  }return arr.join("")
+
+}
+// console.log(capitalizeTheAs("steal"));
 // Uncomment out the next line to test your solution
-// runQ3Tests()
+runQ3Tests()
 
 // Question Four:
 // Write a function called largest that returns the largest value in an array
 
+// let large = [4,7,28,9]
+//
+function largest (arr) {
+  let max = arr[0]
+  for(let i = 1; i < arr.length; i++){
+    if (max < arr[i]){
+      max = arr[i]
+    }
+  }return max
+}
+//
+// console.log(largest(large));
 // Uncomment out the next line to test your solution
-// runQ4Tests()
+runQ4Tests()
 
 // Question Five:
 // Write a function called average that returns the average of an array
-
+//
+//
+// let arr = [10,20,30]
+//
+ const average = (arr) => {
+  let sum = arr.reduce((acc,el) => {
+    return  acc + el
+})
+  let avg = sum / arr.length
+  return avg
+}
+//
+// console.log(average(arr));
+// //
 // Uncomment out the next line to test your solution
-// runQ5Tests()
+ runQ5Tests()
 
 // Question Six:
 // Write a function called mode that returns the most frequently occurring number in an array
 // HINT: Use an object where the keys are the numbers, and the values are how many times they appear in the array.
 
-// Uncomment out the next line to test your solution
-// runQ6Tests()
+// [1,2,3,4,5,2]
+//
+const mode = (arr) => {
+  let countObj = {}
+  for(let i = 0; i < arr.length; i++){
+    let num = arr[i]
+    if(countObj[num] === undefined){
+      countObj[num] = 1
+    }else {
+      countObj[num] = countObj[num] + 1
+    }
+  }
+  let mostCommon  = arr[0]
+  let mostCommonCount = countObj[mostCommon]
+  for(let num in countObj){
+    if(countObj[num] > mostCommonCount){
+    mostCommon = num;
+    mostCommonCount = countObj[num]
+  }
+  }
+  return parseInt(mostCommon)
+}
+//
+// // Uncomment out the next line to test your solution
+ runQ6Tests()
+//
+// // Question Seven: (BONUS)
+// // Write a function called median that returns the most median number in an array
+// // HINT: You'll need to sort the array first
+// // This one's also a bit tricky, feel free to skip it and come back to it.
 
-// Question Seven: (BONUS)
-// Write a function called median that returns the most median number in an array
-// HINT: You'll need to sort the array first
-// This one's also a bit tricky, feel free to skip it and come back to it.
+// const arr = [4,5,9,1]
+const median = (arr) => {
+  arr.sort((a,b)=> a-b)
+  if(arr.length %2 !== 0){
+    let mid = (arr.length-1) / 2
+    return arr[mid]
+  }
+    let mid2 = (arr.length/2) 
+    let mid3 = mid2 - 1
+    let mid4 = (arr[mid3] + arr[mid2]) /2
+    return mid4
+}
+//
+// // Uncomment out the next line to test your solution
+runQ7Tests()
+//
+// // Question Eight:
+// // Write a function called addAllStudents that takes in an array of Classroom objects (described below) and returns the total number of students
+// // Sample input:
+let students = [{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32},
+{teacher: "Professor McGonagall", numberOfStudents: 20}]
+// // Sample output:
+// // 80
+//
+const addAllStudents = (students) => students.reduce((acc, el) =>{
+  return acc + el.numberOfStudents
+}, 0)
+// console.log(addAllStudents);
+//
+//
+// // Uncomment out the next line to test your solution
+ runQ8Tests()
+//
+//
+// // Question Nine:
+// // Write a function called getSmallestClassObject that takes in an array of Classroom objects (described below) and returns the object with the
+// //fewest students
+//
+// // Sample input:
+let lessStudents = [{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32},
+{teacher: "Professor McGonagall", numberOfStudents: 20}]
+//
 
-// Uncomment out the next line to test your solution
-// runQ7Tests()
-
-// Question Eight:
-// Write a function called addAllStudents that takes in an array of Classroom objects (described below) and returns the total number of students
-
-// Sample input:
-// [{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]
-
-// Sample output:
-// 80
-
-// Uncomment out the next line to test your solution
-// runQ8Tests()
-
-
-// Question Nine:
-// Write a function called getSmallestClassObject that takes in an array of Classroom objects (described below) and returns the object with the fewest students
-
-// Sample input:
-// [{teacher: "Mr. Smith", numberOfStudents: 28}, {teacher: "Ms. Lopez", numberOfStudents: 32}, {teacher: "Professor McGonagall", numberOfStudents: 20}]
+const fewestStudents = (arr) => {
+  let min = arr[0].numberOfStudents
+  let index = 0
+  for(let i = 0; i < arr.length; i++){
+    if(min > arr[i].numberOfStudents){
+      min = arr[i].numberOfStudents
+      index = i
+    }
+  }
+  return arr[index]
+}
 
 // Sample output:
 // {teacher: "Professor McGonagall", numberOfStudents: 20}
 
 // Uncomment out the next line to test your solution
-// runQ9Tests()
+runQ9Tests()
 
 
 
@@ -82,8 +186,14 @@ let assert = require('assert')
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
 
+// let doubled = [2, 4, 6, 8, 10]
+//
+const doubleAllElements = (doubled) => doubled.map((el) => {
+  return el * 2
+})
+
 // Uncomment out the next line to test your solution
-// runQ10Tests()
+runQ10Tests()
 
 
 // Question Eleven:
@@ -92,8 +202,13 @@ let assert = require('assert')
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Your output should be in the same order as the input
 
+// let str = ["star", "pit", "pencil", "it", "all"]
+const onlyLongStrings = (arr) => arr.filter((el) => el.length > 3)
+
+// console.log(onlyLongStrings(str));
+
 // Uncomment out the next line to test your solution
-// runQ11Tests()
+runQ11Tests()
 
 // Question Twelve:
 
@@ -101,27 +216,63 @@ let assert = require('assert')
 // Your function should use a higher-ordered function (e.g map, filter, reduce, every, sort) in its implementation
 // Hint: the isNaN() function will tell you whether something is not a number
 
+const containsOnlyNumbers = (arr) => arr.every((el) => {
+          const num = Number(el)
+        return typeof num === "number" && !isNaN(num)
+    //  return isNaN(el)
+    })
+    
 // Uncomment out the next line to test your solution
-// runQ12Tests()
+runQ12Tests()
 
 // Question Thirteen:
 
 // Make a class called Person that has two properties set by the constructor named age and name
 // Give it a method called isALegalAdult which returns true if the age is at least 18
 
-// runQ13Tests()
+class Person {
+  constructor (age, name){
+    this.age = age;
+    this.name= name;
+  }
+  isALegalAdult (){
+    return this.age >= 18
+  }
+}
+runQ13Tests()
 
 // Question Fourteen:
+// Write a function called getAllAdults that takes in an array of Person objects and returns an array with only Person objects with an 
+// age of at least 18
 
-// Write a function called getAllAdults that takes in an array of Person objects and returns an array with only Person objects with an age of at least 18
+const getAllAdults = (arr) => {
+  const newArr =[]
+  for(let i=0; i < arr.length;i++){
+    if(arr[i].isALegalAdult()){
+      newArr.push(arr[i])
+    }
+  }
+  return newArr
+}
 
-// runQ14Tests()
+runQ14Tests()
 
 // Question Fifteen:
+// Write a function called getAllNames that takes in an array of Person objects and returns a string with all of the names joined 
+// together with a ","
 
-// Write a function called getAllNames that takes in an array of Person objects and returns a string with all of the names joined together with a ","
-
-// runQ15Tests()
+const getAllNames = (arr) => {
+  let str = ""
+  for(let i =0; i < arr.length; i++){
+    if(i === 0){
+      str += arr[i].name
+    }else {
+      str = str + "," + arr[i].name
+    }
+  }
+    return str
+}
+runQ15Tests()
 
 // The code below is used to test your solutions.  Feel free to look over it, but do not change any of it.
 
